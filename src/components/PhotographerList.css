@@ -1,0 +1,82 @@
+.PhotographerListWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 200px;
+}
+
+.PhotographerContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.PhotographerLink {
+  text-decoration: none;
+}
+
+.PhotographerLink_name {
+  text-align: center;
+  font-size: 36px;
+  color: #d3573c;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.PhotographerLink_img {
+  object-fit: cover;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+}
+
+.PhotographerCity {
+  font-size: 15px;
+  color: #901c1c;
+  font-weight: 400;
+  line-height: 1.25rem;
+  margin: 0;
+}
+
+.PhotographerTagline {
+  font-size: 12px;
+  color: #000000;
+  font-weight: 400;
+  line-height: 1.25rem;
+  margin: 0;
+}
+
+.PhotographerPrice {
+  font-size: 10px;
+  color: #757575;
+  font-weight: 400;
+  line-height: 1.25rem;
+  margin: 0;
+}
+
+.Tags {
+  padding-left: 0px;
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  line-height: 1.25rem;
+  margin: 0;
+}
+
+.Tag {
+  list-style-type: none;
+  border: 0.5px solid #c4c4c4;
+  box-sizing: border-box;
+  border-radius: 11px;
+}
+
+.TagLink {
+  text-decoration: none;
+  color: #901c1c;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 2px 6px;
+  display: flex;
+}
