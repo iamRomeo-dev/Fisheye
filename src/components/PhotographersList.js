@@ -1,30 +1,24 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import img1 from "../MimiKeel.jpg";
 import "./PhotographersList.css";
+import { useQuery } from "react-query";
+import { fetchPhotographers } from "../API";
 
 export const PhotographersList = () => {
-  const url =
-    "https://iamromeo-dev.github.io/aaaaaaaaaaaaaaaaaaaaaaaaaaa/data.json";
-
-  const [photographers, setPhotographers] = useState([]);
-
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((result) => {
-        setIsLoading(false);
-        setPhotographers(result.photographers);
-      });
-  }, [photographers, setPhotographers, isLoading]);
+  const { data, status } = useQuery(
+    "I Don't Know Why I need this parameter",
+    fetchPhotographers
+  );
 
   return (
     <>
-      {photographers ? (
+      {status === "loading" && <div>Loading data</div>}
+
+      {status === "error" && <div>Error fetching data</div>}
+
+      {status === "success" && (
         <div>
-          {photographers.map((photographer, index) => (
+          {data.photographers.map((photographer, index) => (
             <div className="PhotographerContainer" key={index}>
               <Link
                 to={`/photographers/${photographer.id}`}
@@ -43,8 +37,7 @@ export const PhotographersList = () => {
             </div>
           ))}
         </div>
-      ) : null}
-      {isLoading ? <span>Loading...</span> : null}
+      )}
     </>
   );
 };

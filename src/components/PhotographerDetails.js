@@ -1,39 +1,40 @@
 import { useEffect, useState } from "react";
+import { useQuery } from "react-query";
 import { useParams } from "react-router";
+import { fetchPhotographers } from "../API";
 
 export const PhotographerDetails = () => {
   const { userId } = useParams(); // <- Get back the id from the url
-  const [isLoading, setIsLoading] = useState(true);
   const [photographer, setPhotographer] = useState([]);
 
-  const url =
-    "https://iamromeo-dev.github.io/aaaaaaaaaaaaaaaaaaaaaaaaaaa/data.json";
+  const { data, status } = useQuery(
+    "I Don't Know Why I need this parameter",
+    fetchPhotographers
+  );
 
   useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((result) => {
-        setIsLoading(false);
+    const aaa = () => {
+      for (let i = 0; i < data.photographers.length; i++) {
+        const IdNumber = data.photographers[i].id; // <- //typeof id === Number
+        const IdString = IdNumber.toString(); // <- //typeof id === String
 
-        for (let i = 0; i < result.photographers.length; i++) {
-          const IdNumber = result.photographers[i].id; // <- //typeof id === Number
-          const IdString = IdNumber.toString(); // <- //typeof id === String
-
-          if (IdString === userId) {
-            setPhotographer(result.photographers[i]);
-          }
+        if (IdString === userId) {
+          setPhotographer(data.photographers[i]);
         }
-      });
-  }, [userId]);
-  console.log(photographer);
+      }
+    };
+    aaa();
+  }, [userId, setPhotographer, data.photographers]);
 
   return (
     <>
-      {photographer ? (
-        <h2 className="photographerName">{photographer.name}</h2>
-      ) : null}
+      {status === "loading" && <div>Loading data</div>}
 
-      {isLoading ? <span>Loading...</span> : null}
+      {status === "error" && <div>Error fetching data</div>}
+
+      {status === "success" && (
+        <h2 className="photographerName">{photographer.name}</h2>
+      )}
     </>
   );
 };
