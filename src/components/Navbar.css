@@ -1,0 +1,35 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+@media screen and (max-width: 600px) {
+  .logo {
+    order: 1;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  nav {
+    order: 3;
+  }
+}
+
+.NosPhotographes {
+  color: #901c1c;
+  font-size: 36px;
+  line-height: 47px;
+  font-weight: 500;
+}
+@media screen and (max-width: 600px) {
+  .NosPhotographes {
+    order: 2;
+    font-size: 10px;
+  }
+}

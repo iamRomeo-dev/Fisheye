@@ -1,0 +1,29 @@
+.Tags {
+  padding-left: 0px;
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  line-height: 1.25rem;
+  margin: 0;
+}
+
+.Tag {
+  list-style-type: none;
+  border: 0.5px solid #c4c4c4;
+  box-sizing: border-box;
+  border-radius: 11px;
+  /* difference between the vertical padding of TagLink.
+  Egalize the vertical space between the city, tagline, price and tags */
+  margin-top: 5px;
+}
+
+.TagLink {
+  text-decoration: none;
+  color: #901c1c;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.25rem;
+  padding: 0px 5px;
+  display: flex;
+}
