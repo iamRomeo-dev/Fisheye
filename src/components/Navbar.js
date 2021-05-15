@@ -1,11 +1,10 @@
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 
-export const Navbar = () => {
-
-    // useEffect(() => {
-    //     getUsers(search).then((users) => setUsers(users));
-    //   }, [search]);
+export const Navbar = ({ setFilter }) => {
+  // useEffect(() => {
+  //     getUsers(search).then((users) => setUsers(users));
+  //   }, [search]);
 
   return (
     <header>
@@ -15,28 +14,44 @@ export const Navbar = () => {
       <nav aria-label="Main navigation">
         <ul className="Tags">
           <li className="Tag">
-            <Link to="#" className="TagLink">#Portrait</Link>
+            <Link to="#" className="TagLink">
+              #Portrait
+            </Link>
           </li>
           <li className="Tag">
-            <Link to="#" className="TagLink">#Art</Link>
+            <Link to="#" className="TagLink">
+              #Art
+            </Link>
           </li>
           <li className="Tag">
-            <Link to="#" className="TagLink">#Fashion</Link>
+            <Link to="#" className="TagLink">
+              #Fashion
+            </Link>
           </li>
           <li className="Tag">
-            <Link to="#" className="TagLink">#Architecture</Link>
+            <Link to="#" className="TagLink">
+              #Architecture
+            </Link>
           </li>
           <li className="Tag">
-            <Link to="#" className="TagLink">#Travel</Link>
+            <Link to="#" className="TagLink">
+              #Travel
+            </Link>
           </li>
           <li className="Tag">
-            <Link to="#" className="TagLink">#Sport</Link>
+            <button onClick={() => setFilter("sports")} className="">
+              sports
+            </button>
           </li>
           <li className="Tag">
-            <Link to="#" className="TagLink">#Animals</Link>
+            <Link to="#" className="TagLink">
+              #Animals
+            </Link>
           </li>
           <li className="Tag">
-            <Link to="#" className="TagLink">#Events</Link>
+            <button onClick={() => setFilter("events")} className="">
+              events
+            </button>
           </li>
         </ul>
       </nav>
