@@ -26,7 +26,7 @@ const App = () => {
             component={PhotographerDetails}
           />
           <Route path="/photographers" exact>
-            <PhotographerList filter={filter} />
+            <PhotographerList filter={filter}/>
           </Route>
           <Route path="*">
             <Redirect to="/photographers" />

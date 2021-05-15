@@ -10,15 +10,18 @@
 .Tag {
   list-style-type: none;
   border: 0.5px solid #c4c4c4;
-  box-sizing: border-box;
   border-radius: 11px;
   /* difference between the vertical padding of TagLink.
   Egalize the vertical space between the city, tagline, price and tags */
   margin-top: 5px;
 }
 
-.TagLink {
-  text-decoration: none;
+.Tag_btn {
+  /* Reset button style */
+  border: none;
+  background: none;
+  cursor: pointer;
+
   color: #901c1c;
   font-style: normal;
   font-weight: 500;

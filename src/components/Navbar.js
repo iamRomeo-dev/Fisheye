@@ -1,56 +1,60 @@
 import "./Navbar.css";
 import { Link } from "react-router-dom";
+import logo from '../logo.svg';
 
 export const Navbar = ({ setFilter }) => {
-  // useEffect(() => {
-  //     getUsers(search).then((users) => setUsers(users));
-  //   }, [search]);
-
   return (
     <header>
-      <Link to="" className="logo">
-        <img src="public/img/logo.svg" alt="Fisheye Home page" />
+      <Link to="/photographers" className="logo">
+        <img
+          src={logo}
+          alt="Fisheye Home page"
+          onClick={() => setFilter("")}
+        />
       </Link>
       <nav aria-label="Main navigation">
         <ul className="Tags">
           <li className="Tag">
-            <Link to="#" className="TagLink">
+            <button onClick={() => setFilter("portrait")} className="Tag_btn">
               #Portrait
-            </Link>
-          </li>
-          <li className="Tag">
-            <Link to="#" className="TagLink">
-              #Art
-            </Link>
-          </li>
-          <li className="Tag">
-            <Link to="#" className="TagLink">
-              #Fashion
-            </Link>
-          </li>
-          <li className="Tag">
-            <Link to="#" className="TagLink">
-              #Architecture
-            </Link>
-          </li>
-          <li className="Tag">
-            <Link to="#" className="TagLink">
-              #Travel
-            </Link>
-          </li>
-          <li className="Tag">
-            <button onClick={() => setFilter("sports")} className="">
-              sports
             </button>
           </li>
           <li className="Tag">
-            <Link to="#" className="TagLink">
-              #Animals
-            </Link>
+            <button onClick={() => setFilter("art")} className="Tag_btn">
+              #Art
+            </button>
           </li>
           <li className="Tag">
-            <button onClick={() => setFilter("events")} className="">
-              events
+            <button onClick={() => setFilter("fashion")} className="Tag_btn">
+              #Fashion
+            </button>
+          </li>
+          <li className="Tag">
+            <button
+              onClick={() => setFilter("architecture")}
+              className="Tag_btn"
+            >
+              #Architecture
+            </button>
+          </li>
+          <li className="Tag">
+            <button onClick={() => setFilter("travel")} className="Tag_btn">
+              #Travel
+            </button>
+          </li>
+          <li className="Tag">
+            <button onClick={() => setFilter("sports")} className="Tag_btn">
+              #Sports
+            </button>
+          </li>
+          <li className="Tag">
+            <button onClick={() => setFilter("animals")} className="Tag_btn">
+              #Animals
+            </button>
+          </li>
+          <li className="Tag">
+            <button onClick={() => setFilter("events")} className="Tag_btn">
+              #Events
             </button>
           </li>
         </ul>
