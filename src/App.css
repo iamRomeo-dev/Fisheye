@@ -30,3 +30,10 @@
   padding: 0px 5px;
   display: flex;
 }
+
+@media screen and (max-width: 768px) {
+  .Tag_btn {
+    font-size: 11px;
+    padding: 0px 4px;
+  }
+}

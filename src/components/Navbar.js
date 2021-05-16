@@ -5,7 +5,7 @@ import logo from '../logo.svg';
 export const Navbar = ({ setFilter }) => {
   return (
     <header>
-      <Link to="/photographers" className="logo">
+      <Link to="/photographers" className="PhotographerList_header_logo">
         <img
           src={logo}
           alt="Fisheye Home page"

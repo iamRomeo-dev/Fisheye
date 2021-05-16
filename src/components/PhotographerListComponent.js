@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import img1 from "../MimiKeel.jpg";
+ import img1 from "../PhotographersID/MimiKeel.jpg";
 
 export const PhotographerListComponent = ({ index, photographer }) => {
   return (
@@ -20,6 +20,7 @@ export const PhotographerListComponent = ({ index, photographer }) => {
       <h4 className="PhotographerCity">{photographer.city}</h4>
       <h4 className="PhotographerTagline">{photographer.tagline}</h4>
       <h4 className="PhotographerPrice">{photographer.price}€/jour</h4>
+      <h4 className="PhotographerCity">{photographer.portrait}</h4>
       <ul className="Tags">
         {photographer.tags.map((tag, index) => (
           <li className="Tag" key={index}>

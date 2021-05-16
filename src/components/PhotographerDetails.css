@@ -1,0 +1,123 @@
+@media screen and (max-width: 768px) {
+  .PhotographerDetails_header_logo img {
+    width: 150px;
+    height: auto;
+  }
+}
+
+.PhotographerDetails {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fafafa;
+  padding: 4rem;
+  margin-top: 4rem;
+}
+@media screen and (max-width: 768px) {
+  .PhotographerDetails {
+    padding: 0;
+    position: relative;
+    margin-top: 2rem;
+    background-color: #fff;
+  }
+}
+@media screen and (max-width: 768px) {
+  .PhotographerDetails_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
+.PhotographerDetails_info_contact {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.PhotographerDetails_info_contact button {
+  margin-left: 4rem;
+  color: #fff;
+  background-color: #901c1c;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  width: 170px;
+  height: 69px;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 26px;
+}
+@media screen and (max-width: 768px) {
+  .PhotographerDetails_info_contact button {
+    position: fixed;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-left: 0;
+    width: 170px;
+    height: 35px;
+  }
+}
+
+.PhotographerDetails_info_contact_name {
+  font-size: 64px;
+  color: #d3573c;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .PhotographerDetails_info_contact_name {
+    font-size: 34px;
+    line-height: 34px;
+    margin-bottom: 0.25rem;
+  }
+}
+
+.PhotographerDetails_info_contact_city {
+  font-size: 24px;
+  color: #901c1c;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+@media screen and (max-width: 768px) {
+  .PhotographerDetails_info_contact_city {
+    font-size: 13px;
+    font-style: normal;
+    font-weight: normal;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+  }
+}
+
+.headerPhotographer_info_contact_tagline {
+  font-weight: normal;
+  font-size: 12px;
+  color: #757575;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.PhotographerDetails_info_contact_tags {
+  margin-top: 0.25rem;
+}
+
+.PhotographerDetails_picture_img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.PhotographerDetails_picture_img img {
+  object-fit: cover;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+}
+@media screen and (max-width: 768px) {
+  .PhotographerDetails_picture_img img {
+    width: 110px;
+    height: 110px;
+  }
+}

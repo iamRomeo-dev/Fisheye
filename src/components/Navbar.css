@@ -5,12 +5,20 @@ header {
   flex-wrap: wrap;
 }
 
-.logo {
+.PhotographerList_header_logo {
   display: flex;
   align-items: center;
 }
+
+@media screen and (max-width: 768px) {
+  .PhotographerList_header_logo img {
+    width: 150px;
+    height: auto;
+  }
+}
+
 @media screen and (max-width: 600px) {
-  .logo {
+  .PhotographerList_header_logo {
     order: 1;
   }
 }

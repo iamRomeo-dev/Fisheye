@@ -2,8 +2,9 @@ import "./PhotographerList.css";
 import { useQuery } from "react-query";
 import { fetchPhotographers } from "../API";
 import { PhotographerListComponent } from "./PhotographerListComponent";
+import { Navbar } from "./Navbar";
 
-export const PhotographerList = ({ filter }) => {
+export const PhotographerList = ({ filter, setFilter }) => {
   const { data, status } = useQuery(
     "I Don't Know Why I need this parameter",
     fetchPhotographers
@@ -17,6 +18,7 @@ export const PhotographerList = ({ filter }) => {
 
       {status === "success" && (
         <>
+          <Navbar setFilter={setFilter} />
           <div className="PhotographerListWrapper">
             {filter
               ? data.photographers

@@ -14,10 +14,10 @@
 
 .PhotographerLink {
   text-decoration: none;
+  text-align: center;
 }
 
 .PhotographerLink_name {
-  text-align: center;
   font-size: 36px;
   color: #d3573c;
   margin-top: 10px;
