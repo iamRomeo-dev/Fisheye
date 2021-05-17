@@ -25,13 +25,13 @@ export const PhotographerList = ({ filter, setFilter }) => {
                   .filter((photographer) => photographer.tags.includes(filter))
                   .map((photographer, index) => (
                     <PhotographerListComponent
-                      index={index}
+                      key={index}
                       photographer={photographer}
                     />
                   ))
               : data.photographers.map((photographer, index) => (
                   <PhotographerListComponent
-                    index={index}
+                    key={index}
                     photographer={photographer}
                   />
                 ))}

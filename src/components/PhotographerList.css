@@ -2,7 +2,12 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  gap: 200px;
+  gap: 10rem;
+}
+@media screen and (max-width: 800px) {
+  .PhotographerListWrapper {
+    gap: 5rem;
+  }
 }
 
 .PhotographerContainer {
@@ -53,4 +58,3 @@
   line-height: 1.25rem;
   margin: 0;
 }
-

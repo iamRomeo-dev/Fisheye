@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
- import img1 from "../PhotographersID/MimiKeel.jpg";
+import img1 from "../PhotographersID/MimiKeel.jpg";
 
 export const PhotographerListComponent = ({ index, photographer }) => {
   return (
