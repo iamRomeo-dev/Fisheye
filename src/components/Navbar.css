@@ -3,11 +3,23 @@ header {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  margin-top: 2rem;
+  margin-bottom: 4rem;;
 }
+/* @media screen and (max-width: 768px) {
+  header {
+    justify-content: ;
+  }
+} */
 
 .PhotographerList_header_logo {
   display: flex;
   align-items: center;
+}
+@media screen and (max-width: 768px) {
+  .PhotographerList_header_logo {
+    order: 1;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -17,15 +29,15 @@ header {
   }
 }
 
-@media screen and (max-width: 600px) {
-  .PhotographerList_header_logo {
-    order: 1;
-  }
+.Navbar_tags {
+  display: flex;
+  align-items: center;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
   nav {
     order: 3;
+    margin-top: 1rem;
   }
 }
 
@@ -34,8 +46,10 @@ header {
   font-size: 36px;
   line-height: 47px;
   font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 0;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
   .NosPhotographes {
     order: 2;
     font-size: 10px;

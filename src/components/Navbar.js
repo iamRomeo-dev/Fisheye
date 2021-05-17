@@ -12,7 +12,7 @@ export const Navbar = ({ setFilter }) => {
           onClick={() => setFilter("")}
         />
       </Link>
-      <nav aria-label="Main navigation">
+      <nav aria-label="Main navigation" className="Navbar_tags">
         <ul className="Tags">
           <li className="Tag">
             <button onClick={() => setFilter("portrait")} className="Tag_btn">
