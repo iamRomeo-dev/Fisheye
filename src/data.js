@@ -1,4 +1,4 @@
-{
+export const dataJSON = {
     "photographers": [
         {
             "name": "Mimi Keel",
@@ -89,7 +89,7 @@
             "id": 342550,
             "photographerId": 82,
             "title": "Fashion Yellow Beach",
-            "image": "Fashion_Yellow_Beach.jpg",
+            "image": "./PhotographersID/TracyGalindo.jpg",
             "tags": [
                 "fashion"
             ],

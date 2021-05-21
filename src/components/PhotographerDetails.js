@@ -3,33 +3,51 @@ import { useQuery } from "react-query";
 import { useParams } from "react-router";
 import { fetchPhotographers } from "../API";
 import "./PhotographerDetails.css";
-import img1 from "../PhotographersID/MimiKeel.jpg";
 import { Link } from "react-router-dom";
 import logo from "../logo.svg";
+import { PhotographerDetailsComponentInfo } from "./PhotographerDetailsComponentInfo";
+import { ArrowIcon, HeartIcon } from "./Icons";
+// import { dataJSON } from '../data';
+import img1 from "../PhotographersID/MimiKeel.jpg";
+import img2 from "../PhotographersID/MimiKeel.jpg";
+import img3 from "../PhotographersID/MimiKeel.jpg";
+import img4 from "../PhotographersID/MimiKeel.jpg";
 
 export const PhotographerDetails = ({ setFilter }) => {
   const { userId } = useParams(); // <- Get back the id from the url, given in the path (:userId)
   const [photographer, setPhotographer] = useState([]);
-
+  const [photos, setPhotos] = useState([]);
   const { data, status } = useQuery(
     "I Don't Know Why I need this parameter",
     fetchPhotographers
   );
 
+  // Get the photographer by Id using the URL Id
   useEffect(() => {
     const aaa = () => {
       for (let i = 0; i < data.photographers.length; i++) {
         const IdNumber = data.photographers[i].id; // <- typeof id === Number
         const IdString = IdNumber.toString(); // <- typeof id === String
 
+        //Now i can compare the 2 values because they have the same typeof(String both of them)
         if (IdString === userId) {
-          // <- now i can compare the 2 values because they have the same typeof(String both of them)
           setPhotographer(data.photographers[i]);
         }
       }
     };
     aaa();
   }, [userId, setPhotographer, data.photographers]);
+
+  // Filter the photographer photos using the URL Id
+  useEffect(() => {
+    let photosTab = data.media.filter(
+      (media) => Number(userId) === media.photographerId
+    );
+    setPhotos(photosTab);
+  }, [data.media, userId]);
+
+  console.log("PHOTO BY PHOTOGRAPHER");
+  console.log(photos);
 
   return (
     <>
@@ -51,33 +69,39 @@ export const PhotographerDetails = ({ setFilter }) => {
               />
             </Link>
           </header>
-          <div className="PhotographerDetails">
-            <div className="PhotographerDetails_info">
-              <div className="PhotographerDetails_info_contact">
-                <h1 className="PhotographerDetails_info_contact_name">
-                  {photographer.name}
-                </h1>
-                <button className="PhotographerDetails_info_contact_button">
-                  Contactez-moi
-                </button>
-              </div>
-              <h4 className="PhotographerDetails_info_contact_city">
-                {photographer.city}, {photographer.country}
-              </h4>
-              <h5 className="headerPhotographer_info_contact_tagline">
-                {photographer.tagline}
-              </h5>
-              <ul className="Tags PhotographerDetails_info_contact_tags">
-                {photographer.tags &&
-                  photographer.tags.map((tag, index) => (
-                    <li className="Tag" key={index}>
-                      <button className="Tag_btn">#{tag}</button>
-                    </li>
-                  ))}
-              </ul>
-            </div>
+          <PhotographerDetailsComponentInfo photographer={photographer} />
+          <div>
+            <label htmlFor="dropdown">Trier par </label>
+            <select
+              name="dropdown"
+              id="dropdown"
+              className="PhotographerDetails_dropdown"
+            >
+              <option value="popularité">Popularité</option>
+              <option value="date">Date</option>
+              <option value="titre">Titre</option>
+              {/* <ArrowIcon /> */}
+            </select>
+          </div>
 
-              <img src={img1} alt={photographer.name} className="PhotographerDetails_picture_img"/>
+          <div className="PhotographerDetails_photos_wrapper">
+            {photos &&
+              photos.map((photo) => (
+                <div>
+                  <img
+                    src={img4}
+                    alt={photos}
+                    key={photo.id}
+                    className="PhotographerDetails_photo"
+                  />
+                  <div className="PhotographerDetails_photo_figcaption">
+                    <p>{photo.title} </p>
+                    <span>
+                      {photo.likes} <HeartIcon />
+                    </span>
+                  </div>
+                </div>
+              ))}
           </div>
         </>
       )}

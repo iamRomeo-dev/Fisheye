@@ -5,127 +5,81 @@
   }
 }
 
-.PhotographerDetails {
-  display: flex;
-  justify-content: space-between;
-  background-color: #fafafa;
-  padding: 2rem;
-  margin-top: 4rem;
-}
-@media screen and (max-width: 768px) {
-  .PhotographerDetails {
-    padding: 0;
-    position: relative;
-    margin-top: 2rem;
-    background-color: #fff;
-  }
-}
-
-.PhotographerDetails_info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-@media screen and (max-width: 768px) {
-  .PhotographerDetails_info {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-}
-
-.PhotographerDetails_info_contact {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.PhotographerDetails_info_contact button {
-  color: #fff;
-  background-color: #901c1c;
+/* background: #911c1c;
   border-radius: 5px;
-  border: 1px solid transparent;
-  width: 170px;
-  height: 69px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  color: #fff;
+  font-style: normal;
   font-weight: bold;
-  font-size: 20px;
-  line-height: 26px;
-}
-@media screen and (max-width: 768px) {
-  .PhotographerDetails_info_contact button {
-    position: fixed;
-    bottom: 3rem;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-left: 0;
-    width: 170px;
-    height: 35px;
-  }
+  font-size: 18px;
+  background-image: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_up.png);
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  background-position-y: 15px;
+  border: 1px solid #9f3434;
+  border-radius: 2px;
+  margin-right: 2rem;
+  padding: 1rem;
+  padding-right: 2rem;
+} */
+
+.PhotographerDetails_dropdown {
+  width: 140px;
+  padding: 1rem;
+  font-size: 16px;
+  line-height: 1;
+  border: 0;
+  border-radius: 5px;
+  height: 3rem;
+  background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_up.png)
+    no-repeat right #911c1c;
+  -webkit-appearance: none;
+  background-position-x: 110px;
+  color: #fff;
 }
 
-.PhotographerDetails_info_contact_name {
-  margin-right: 4rem;
-  font-size: 64px;
-  color: #d3573c;
-  margin-bottom: 0;
-  margin-top: 0;
-}
-
-@media screen and (max-width: 768px) {
-  .PhotographerDetails_info_contact_name {
-    margin-right: 0;
-    font-size: 34px;
-    line-height: 34px;
-    margin-bottom: 0.25rem;
-  }
-}
-
-.PhotographerDetails_info_contact_city {
-  font-size: 24px;
-  color: #901c1c;
-  margin-top: 0.75rem;
-  margin-bottom: 0;
-}
-@media screen and (max-width: 768px) {
-  .PhotographerDetails_info_contact_city {
-    font-size: 13px;
-    font-style: normal;
-    font-weight: normal;
-    margin-top: 0.25rem;
-    margin-bottom: 0.25rem;
-  }
-}
-
-.headerPhotographer_info_contact_tagline {
-  font-weight: normal;
-  font-size: 12px;
-  color: #757575;
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem;
-}
-@media screen and (max-width: 768px) {
-  .headerPhotographer_info_contact_tagline {
-    margin-top: 0.25rem;
-    margin-bottom: 0.25rem;
-  }
-}
-
-.PhotographerDetails_info_contact_tags {
-  margin-top: 0.25rem;
-  justify-content: flex-start;
-}
-
-.PhotographerDetails_picture_img {
+.PhotographerDetails_photos_wrapper {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  object-fit: cover;
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
+  gap: 5rem;
+  margin-top: 1rem;
 }
-@media screen and (max-width: 768px) {
-  .PhotographerDetails_picture_img {
-    width: 110px;
-    height: 110px;
+
+.PhotographerDetails_photo {
+  /* flex: 1 1 100%; */
+  width: 300px;
+  height: 350px;
+  object-fit: cover;
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+}
+
+.PhotographerDetails_photo_figcaption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #901c1c;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+}
+/* 
+@media screen and (min-width: 480px) {
+  .PhotographerDetails_photo {
+    flex: 1 1 50%;
   }
 }
+
+@media screen and (min-width: 768px) {
+  .PhotographerDetails_photo {
+    flex: 1 1 33.333%;
+  }
+}
+
+@media screen and (min-width: 980px) {
+  .PhotographerDetails_photo {
+    flex: 1 1 25%;
+  }
+} */
