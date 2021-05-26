@@ -17,6 +17,7 @@ export const PhotographerDetails = ({ setFilter }) => {
   const { userId } = useParams(); // <- Get back the id from the url, given in the path (:userId)
   const [photographer, setPhotographer] = useState([]);
   const [photos, setPhotos] = useState([]);
+  const [showModal, setShowModal] = useState(null);
   const { data, status } = useQuery(
     "I Don't Know Why I need this parameter",
     fetchPhotographers
@@ -69,39 +70,50 @@ export const PhotographerDetails = ({ setFilter }) => {
               />
             </Link>
           </header>
-          <PhotographerDetailsComponentInfo photographer={photographer} />
-          <div>
-            <label htmlFor="dropdown" className="PhotographerDetails_dropdown_label">Trier par </label>
-            <select
-              name="dropdown"
-              id="dropdown"
-              className="PhotographerDetails_dropdown"
-            >
-              <option value="popularité">Popularité</option>
-              <option value="date">Date</option>
-              <option value="titre">Titre</option>
-              {/* <ArrowIcon /> */}
-            </select>
-          </div>
+          <div >
+            <PhotographerDetailsComponentInfo
+              photographer={photographer}
+              showModal={showModal}
+              setShowModal={setShowModal}
+            />
+            <div style={{ opacity: showModal ? "0.5" : "1" }}>
+              <label
+                htmlFor="dropdown"
+                className="PhotographerDetails_dropdown_label"
+              >
+                Trier par{" "}
+              </label>
+              <select
+                name="dropdown"
+                id="dropdown"
+                className="PhotographerDetails_dropdown"
+              >
+                <option value="popularité">Popularité</option>
+                <option value="date">Date</option>
+                <option value="titre">Titre</option>
+                {/* <ArrowIcon /> */}
+              </select>
+            </div>
 
-          <div className="PhotographerDetails_photos_wrapper">
-            {photos &&
-              photos.map((photo) => (
-                <div>
-                  <img
-                    src={img4}
-                    alt={photos}
-                    key={photo.id}
-                    className="PhotographerDetails_photo"
-                  />
-                  <div className="PhotographerDetails_photo_figcaption">
-                    <p>{photo.title} </p>
-                    <span className="PhotographerDetails_photo_figcaption_likes">
-                      {photo.likes} <HeartIcon />
-                    </span>
+            <div className="PhotographerDetails_photos_wrapper" style={{ opacity: showModal ? "0.5" : "1" }}>
+              {photos &&
+                photos.map((photo) => (
+                  <div>
+                    <img
+                      src={img4}
+                      alt={photos}
+                      key={photo.id}
+                      className="PhotographerDetails_photo"
+                    />
+                    <div className="PhotographerDetails_photo_figcaption">
+                      <p>{photo.title} </p>
+                      <span className="PhotographerDetails_photo_figcaption_likes">
+                        {photo.likes} <HeartIcon />
+                      </span>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+            </div>
           </div>
         </>
       )}
