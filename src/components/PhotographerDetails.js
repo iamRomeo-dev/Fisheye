@@ -71,7 +71,7 @@ export const PhotographerDetails = ({ setFilter }) => {
           </header>
           <PhotographerDetailsComponentInfo photographer={photographer} />
           <div>
-            <label htmlFor="dropdown">Trier par </label>
+            <label htmlFor="dropdown" className="PhotographerDetails_dropdown_label">Trier par </label>
             <select
               name="dropdown"
               id="dropdown"
@@ -96,7 +96,7 @@ export const PhotographerDetails = ({ setFilter }) => {
                   />
                   <div className="PhotographerDetails_photo_figcaption">
                     <p>{photo.title} </p>
-                    <span>
+                    <span className="PhotographerDetails_photo_figcaption_likes">
                       {photo.likes} <HeartIcon />
                     </span>
                   </div>

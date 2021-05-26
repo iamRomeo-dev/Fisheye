@@ -5,24 +5,10 @@
   }
 }
 
-/* background: #911c1c;
-  border-radius: 5px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  color: #fff;
-  font-style: normal;
+.PhotographerDetails_dropdown_label {
   font-weight: bold;
-  font-size: 18px;
-  background-image: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_up.png);
-  background-repeat: no-repeat;
-  background-position-x: 100%;
-  background-position-y: 15px;
-  border: 1px solid #9f3434;
-  border-radius: 2px;
-  margin-right: 2rem;
-  padding: 1rem;
-  padding-right: 2rem;
-} */
+  margin-right: 1rem;
+}
 
 .PhotographerDetails_dropdown {
   width: 140px;
@@ -43,14 +29,14 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 5rem;
+  column-gap: 5rem;
   margin-top: 1rem;
 }
 
 .PhotographerDetails_photo {
   /* flex: 1 1 100%; */
   width: 300px;
-  height: 350px;
+  height: 250px;
   object-fit: cover;
   border: 1px solid #c4c4c4;
   border-radius: 5px;
@@ -64,6 +50,8 @@
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
+  line-height: 0.25rem;
+  margin-bottom: 1rem;
 }
 /* 
 @media screen and (min-width: 480px) {
@@ -83,3 +71,8 @@
     flex: 1 1 25%;
   }
 } */
+
+.PhotographerDetails_photo_figcaption_likes {
+  display: flex;
+  align-items: center;
+}

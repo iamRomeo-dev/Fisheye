@@ -1,7 +1,15 @@
+import { useState } from "react";
 import img1 from "../PhotographersID/MimiKeel.jpg";
+import { ContactForm } from "./ContactForm";
 import "./PhotographerDetailsComponentInfo.css";
 
 export const PhotographerDetailsComponentInfo = ({ photographer }) => {
+  const [showModal, setShowModal] = useState("");
+
+  const openModal = () => {
+    setShowModal((prev) => !prev);
+  };
+
   return (
     <div className="PhotographerDetails">
       <div className="PhotographerDetails_info">
@@ -9,9 +17,14 @@ export const PhotographerDetailsComponentInfo = ({ photographer }) => {
           <h1 className="PhotographerDetails_info_contact_name">
             {photographer.name}
           </h1>
-          <button className="PhotographerDetails_info_contact_button">
+          <button
+            onClick={openModal}
+            className="PhotographerDetails_info_contact_button"
+          >
             Contactez-moi
           </button>
+          <ContactForm showModal={showModal} setShowModal={setShowModal} />
+
         </div>
         <h4 className="PhotographerDetails_info_contact_city">
           {photographer.city}, {photographer.country}
