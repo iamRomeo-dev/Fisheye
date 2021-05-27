@@ -1,54 +1,21 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router";
-import { fetchPhotographers } from "../API";
+import { fetchPhotographerById } from "../API";
 import "./PhotographerDetails.css";
 import { Link } from "react-router-dom";
 import logo from "../logo.svg";
 import { PhotographerDetailsComponentInfo } from "./PhotographerDetailsComponentInfo";
-import { ArrowIcon, HeartIcon } from "./Icons";
-// import { dataJSON } from '../data';
-import img1 from "../PhotographersID/MimiKeel.jpg";
-import img2 from "../PhotographersID/MimiKeel.jpg";
-import img3 from "../PhotographersID/MimiKeel.jpg";
-import img4 from "../PhotographersID/MimiKeel.jpg";
+import { PhotographersDetailsComponentPhotos } from "./PhotographersDetailsComponentPhotos";
 
 export const PhotographerDetails = ({ setFilter }) => {
   const { userId } = useParams(); // <- Get back the id from the url, given in the path (:userId)
-  const [photographer, setPhotographer] = useState([]);
-  const [photos, setPhotos] = useState([]);
   const [showModal, setShowModal] = useState(null);
-  const { data, status } = useQuery(
-    "I Don't Know Why I need this parameter",
-    fetchPhotographers
+  const [sortBy, setSortBy] = useState("likes");
+  const { data: photographer, status } = useQuery(
+    `fetchPhotographerById/${userId}`,
+    async () => fetchPhotographerById(parseInt(userId)) // <- async () => Car je ne veux pas exécuter la fonction fetchPhotographerById(parseInt(userId)), alors je la déclare. ParseInt permet de mettre userId en Integer
   );
-
-  // Get the photographer by Id using the URL Id
-  useEffect(() => {
-    const aaa = () => {
-      for (let i = 0; i < data.photographers.length; i++) {
-        const IdNumber = data.photographers[i].id; // <- typeof id === Number
-        const IdString = IdNumber.toString(); // <- typeof id === String
-
-        //Now i can compare the 2 values because they have the same typeof(String both of them)
-        if (IdString === userId) {
-          setPhotographer(data.photographers[i]);
-        }
-      }
-    };
-    aaa();
-  }, [userId, setPhotographer, data.photographers]);
-
-  // Filter the photographer photos using the URL Id
-  useEffect(() => {
-    let photosTab = data.media.filter(
-      (media) => Number(userId) === media.photographerId
-    );
-    setPhotos(photosTab);
-  }, [data.media, userId]);
-
-  console.log("PHOTO BY PHOTOGRAPHER");
-  console.log(photos);
 
   return (
     <>
@@ -70,13 +37,14 @@ export const PhotographerDetails = ({ setFilter }) => {
               />
             </Link>
           </header>
-          <div >
+          <div>
             <PhotographerDetailsComponentInfo
               photographer={photographer}
               showModal={showModal}
               setShowModal={setShowModal}
             />
-            <div style={{ opacity: showModal ? "0.5" : "1" }}>
+            {/* <div style={{ opacity: showModal ? "0.5" : "1" }}> */}
+            <div>
               <label
                 htmlFor="dropdown"
                 className="PhotographerDetails_dropdown_label"
@@ -88,32 +56,19 @@ export const PhotographerDetails = ({ setFilter }) => {
                 id="dropdown"
                 className="PhotographerDetails_dropdown"
               >
-                <option value="popularité">Popularité</option>
-                <option value="date">Date</option>
-                <option value="titre">Titre</option>
-                {/* <ArrowIcon /> */}
+                <option value="popularité" onClick={() => setSortBy("likes")}>
+                  Popularité
+                </option>
+                <option value="date" onClick={() => setSortBy("date")}>
+                  Date
+                </option>
+                <option value="titre" onClick={() => setSortBy("title")}>
+                  Titre
+                </option>
               </select>
             </div>
 
-            <div className="PhotographerDetails_photos_wrapper" style={{ opacity: showModal ? "0.5" : "1" }}>
-              {photos &&
-                photos.map((photo) => (
-                  <div>
-                    <img
-                      src={img4}
-                      alt={photos}
-                      key={photo.id}
-                      className="PhotographerDetails_photo"
-                    />
-                    <div className="PhotographerDetails_photo_figcaption">
-                      <p>{photo.title} </p>
-                      <span className="PhotographerDetails_photo_figcaption_likes">
-                        {photo.likes} <HeartIcon />
-                      </span>
-                    </div>
-                  </div>
-                ))}
-            </div>
+            <PhotographersDetailsComponentPhotos userId={userId} />
           </div>
         </>
       )}

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import img1 from "../PhotographersID/MimiKeel.jpg";
 import { ContactForm } from "./ContactForm";
 import "./PhotographerDetailsComponentInfo.css";
@@ -8,7 +7,6 @@ export const PhotographerDetailsComponentInfo = ({
   showModal,
   setShowModal,
 }) => {
-  // const [showModal, setShowModal] = useState(null);
 
   const openModal = () => {
     setShowModal((prev) => !prev);
@@ -17,7 +15,10 @@ export const PhotographerDetailsComponentInfo = ({
   return (
     <>
       <ContactForm showModal={showModal} setShowModal={setShowModal} />
-      <div className="PhotographerDetails" style={{ opacity: showModal ? "0.5" : "1" }}>
+      <div
+        className="PhotographerDetails"
+        style={{ opacity: showModal ? "0.5" : "1" }}
+      >
         <div className="PhotographerDetails_info">
           <div className="PhotographerDetails_info_contact">
             <h1 className="PhotographerDetails_info_contact_name">

@@ -37,6 +37,7 @@
   .PhotographerDetails_info_contact button {
     color: #fff;
     background-color: #901c1c;
+    cursor: pointer;
     border-radius: 5px;
     border: 1px solid transparent;
     width: 170px;
@@ -92,7 +93,7 @@
   
   .headerPhotographer_info_contact_tagline {
     font-weight: normal;
-    font-size: 12px;
+    font-size: 16px;
     color: #757575;
     margin-top: 0.75rem;
     margin-bottom: 0.75rem;

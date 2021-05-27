@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import img1 from "../PhotographersID/MimiKeel.jpg";
 
 export const PhotographerListComponent = ({ index, photographer }) => {
   return (
@@ -10,7 +9,7 @@ export const PhotographerListComponent = ({ index, photographer }) => {
       >
         <>
           <img
-            src={img1}
+            src={`${process.env.PUBLIC_URL}/photographers/${photographer.portrait}`}
             alt={photographer.name}
             className="PhotographerLink_img"
           />

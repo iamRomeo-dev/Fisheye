@@ -3,5 +3,32 @@ const url =
 
 export const fetchPhotographers = async () => {
   const res = await fetch(url);
-  return res.json();
+  const json = await res.json();
+  return json.photographers;
 };
+
+// export const fetchMedia = async () => {
+//   const res = await fetch(url);
+//   const json = await res.json();
+//   return json.media;
+// };
+
+export const fetchMediaByPhotogrpaherId = async (id) => {
+  const res = await fetch(url);
+  const json = await res.json();
+  return json.media.filter((m) => m.photographerId === id);
+};
+
+export const fetchPhotographerById = async (id) => {
+  const res = await fetch(url);
+  const json = await res.json();
+  return json.photographers.filter((photographer) => {
+    return photographer.id === id;
+  })[0];
+};
+
+//Plus besoin de ca normalement
+// export const fetchPhotographers = async () => {
+//   const res = await fetch(url);
+//   return res.json();
+// };

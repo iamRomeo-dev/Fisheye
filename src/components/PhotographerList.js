@@ -6,7 +6,7 @@ import { Navbar } from "./Navbar";
 
 export const PhotographerList = ({ filter, setFilter }) => {
   const { data, status } = useQuery(
-    "I Don't Know Why I need this parameter",
+    "fetchPhotographers",
     fetchPhotographers
   );
 
@@ -21,7 +21,7 @@ export const PhotographerList = ({ filter, setFilter }) => {
           <Navbar setFilter={setFilter} />
           <div className="PhotographerListWrapper">
             {filter
-              ? data.photographers
+              ? data
                   .filter((photographer) => photographer.tags.includes(filter))
                   .map((photographer, index) => (
                     <PhotographerListComponent
@@ -29,7 +29,7 @@ export const PhotographerList = ({ filter, setFilter }) => {
                       photographer={photographer}
                     />
                   ))
-              : data.photographers.map((photographer, index) => (
+              : data.map((photographer, index) => (
                   <PhotographerListComponent
                     key={index}
                     photographer={photographer}
