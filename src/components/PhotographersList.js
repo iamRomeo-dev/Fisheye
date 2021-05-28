@@ -1,10 +1,10 @@
-import "./PhotographerList.css";
+import "./PhotographersList.css";
 import { useQuery } from "react-query";
 import { fetchPhotographers } from "../API";
-import { PhotographerListComponent } from "./PhotographerListComponent";
+import { PhotographersListComponent } from "./PhotographersListComponent";
 import { Navbar } from "./Navbar";
 
-export const PhotographerList = ({ filter, setFilter }) => {
+export const PhotographersList = ({ filter, setFilter }) => {
   const { data, status } = useQuery(
     "fetchPhotographers",
     fetchPhotographers
@@ -24,13 +24,13 @@ export const PhotographerList = ({ filter, setFilter }) => {
               ? data
                   .filter((photographer) => photographer.tags.includes(filter))
                   .map((photographer, index) => (
-                    <PhotographerListComponent
+                    <PhotographersListComponent
                       key={index}
                       photographer={photographer}
                     />
                   ))
               : data.map((photographer, index) => (
-                  <PhotographerListComponent
+                  <PhotographersListComponent
                     key={index}
                     photographer={photographer}
                   />

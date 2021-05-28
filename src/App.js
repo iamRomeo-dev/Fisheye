@@ -2,7 +2,7 @@
 import "./App.css";
 
 import { Switch, Route, Redirect } from "react-router-dom";
-import { PhotographerList } from "./components/PhotographerList";
+import { PhotographersList } from "./components/PhotographersList";
 import { PhotographerDetails } from "./components/PhotographerDetails";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { useState } from "react";
@@ -22,7 +22,7 @@ const App = () => {
             path="/photographers/:userId"
             exact><PhotographerDetails setFilter={setFilter}/></Route>
           <Route path="/photographers" exact>
-            <PhotographerList filter={filter} setFilter={setFilter}/>
+            <PhotographersList filter={filter} setFilter={setFilter}/>
           </Route>
           <Route path="*">
             <Redirect to="/photographers" />

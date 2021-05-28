@@ -89,7 +89,7 @@ export const dataJSON = {
             "id": 342550,
             "photographerId": 82,
             "title": "Fashion Yellow Beach",
-            "image": "./PhotographersID/TracyGalindo.jpg",
+            "image": "TracyGalindo.jpg",
             "tags": [
                 "fashion"
             ],

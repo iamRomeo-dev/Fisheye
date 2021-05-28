@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export const PhotographerListComponent = ({ index, photographer }) => {
+export const PhotographersListComponent = ({ index, photographer }) => {
   return (
     <div className="PhotographerContainer" key={index}>
       <Link

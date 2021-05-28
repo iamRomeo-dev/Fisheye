@@ -6,11 +6,11 @@ import "./PhotographerDetails.css";
 import { Link } from "react-router-dom";
 import logo from "../logo.svg";
 import { PhotographerDetailsComponentInfo } from "./PhotographerDetailsComponentInfo";
-import { PhotographersDetailsComponentPhotos } from "./PhotographersDetailsComponentPhotos";
+import { PhotographerDetailsComponentPhotos } from "./PhotographerDetailsComponentPhotos";
 
 export const PhotographerDetails = ({ setFilter }) => {
   const { userId } = useParams(); // <- Get back the id from the url, given in the path (:userId)
-  const [showModal, setShowModal] = useState(null);
+  const [showModal, setShowModal] = useState(false);
   const [sortBy, setSortBy] = useState("likes");
   const { data: photographer, status } = useQuery(
     `fetchPhotographerById/${userId}`,
@@ -25,6 +25,12 @@ export const PhotographerDetails = ({ setFilter }) => {
 
       {status === "success" && (
         <>
+        {/* Try to put an overlay onClick behind the contact form. 
+        Le css est en cours dans PhotographerDetails .overlay
+        (Position:relative; z-index:10 sur le contact form pour etre davant l'overlay)
+        (Position:relative; z-index:4 sur l'overlay pour etre derriere le contact form maius devant le reste) */}
+
+         <div className="overlay"></div>
           <header>
             <Link
               to="/photographers"
@@ -68,7 +74,7 @@ export const PhotographerDetails = ({ setFilter }) => {
               </select>
             </div>
 
-            <PhotographersDetailsComponentPhotos userId={userId} />
+            <PhotographerDetailsComponentPhotos userId={userId} />
           </div>
         </>
       )}

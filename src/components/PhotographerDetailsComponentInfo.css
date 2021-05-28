@@ -1,128 +1,126 @@
-
 .PhotographerDetails {
-    display: flex;
-    justify-content: space-between;
-    background-color: #fafafa;
-    padding: 2rem;
-    margin-top: 4rem;
-    margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fafafa;
+  padding: 2rem;
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+}
+@media screen and (max-width: 768px) {
+  .PhotographerDetails {
+    padding: 0;
+    position: relative;
+    margin-top: 2rem;
+    background-color: #fff;
   }
-  @media screen and (max-width: 768px) {
-    .PhotographerDetails {
-      padding: 0;
-      position: relative;
-      margin-top: 2rem;
-      background-color: #fff;
-    }
-  }
-  
+}
+
+.PhotographerDetails_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media screen and (max-width: 768px) {
   .PhotographerDetails_info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
-  @media screen and (max-width: 768px) {
-    .PhotographerDetails_info {
-      padding-top: 1rem;
-      padding-bottom: 1rem;
-    }
-  }
-  
-  .PhotographerDetails_info_contact {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  
+}
+
+.PhotographerDetails_info_contact {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.PhotographerDetails_info_contact button {
+  color: #fff;
+  background-color: #901c1c;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  width: 170px;
+  height: 69px;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 26px;
+}
+@media screen and (max-width: 768px) {
   .PhotographerDetails_info_contact button {
-    color: #fff;
-    background-color: #901c1c;
-    cursor: pointer;
-    border-radius: 5px;
-    border: 1px solid transparent;
+    position: fixed;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-left: 0;
     width: 170px;
-    height: 69px;
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 26px;
+    height: 35px;
   }
-  @media screen and (max-width: 768px) {
-    .PhotographerDetails_info_contact button {
-      position: fixed;
-      bottom: 3rem;
-      left: 50%;
-      transform: translateX(-50%);
-      margin-left: 0;
-      width: 170px;
-      height: 35px;
-    }
-  }
-  
+}
+
+.PhotographerDetails_info_contact_name {
+  margin-right: 4rem;
+  font-size: 64px;
+  color: #d3573c;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+@media screen and (max-width: 768px) {
   .PhotographerDetails_info_contact_name {
-    margin-right: 4rem;
-    font-size: 64px;
-    color: #d3573c;
-    margin-bottom: 0;
-    margin-top: 0;
+    margin-right: 0;
+    font-size: 27px;
+    line-height: 34px;
+    margin-bottom: 0.25rem;
   }
-  
-  @media screen and (max-width: 768px) {
-    .PhotographerDetails_info_contact_name {
-      margin-right: 0;
-      font-size: 27px;
-      line-height: 34px;
-      margin-bottom: 0.25rem;
-    }
-  }
-  
+}
+
+.PhotographerDetails_info_contact_city {
+  font-size: 24px;
+  color: #901c1c;
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+}
+@media screen and (max-width: 768px) {
   .PhotographerDetails_info_contact_city {
-    font-size: 24px;
-    color: #901c1c;
-    margin-top: 0.75rem;
-    margin-bottom: 0;
-  }
-  @media screen and (max-width: 768px) {
-    .PhotographerDetails_info_contact_city {
-      font-size: 13px;
-      font-style: normal;
-      font-weight: normal;
-      margin-top: 0.25rem;
-      margin-bottom: 0.25rem;
-    }
-  }
-  
-  .headerPhotographer_info_contact_tagline {
+    font-size: 13px;
+    font-style: normal;
     font-weight: normal;
-    font-size: 16px;
-    color: #757575;
-    margin-top: 0.75rem;
-    margin-bottom: 0.75rem;
-  }
-  @media screen and (max-width: 768px) {
-    .headerPhotographer_info_contact_tagline {
-      margin-top: 0.25rem;
-      margin-bottom: 0.25rem;
-    }
-  }
-  
-  .PhotographerDetails_info_contact_tags {
     margin-top: 0.25rem;
-    justify-content: flex-start;
+    margin-bottom: 0.25rem;
   }
-  
+}
+
+.headerPhotographer_info_contact_tagline {
+  font-weight: normal;
+  font-size: 16px;
+  color: #757575;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+@media screen and (max-width: 768px) {
+  .headerPhotographer_info_contact_tagline {
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+  }
+}
+
+.PhotographerDetails_info_contact_tags {
+  margin-top: 0.25rem;
+  justify-content: flex-start;
+}
+
+.PhotographerDetails_picture_img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: cover;
+  width: 225px;
+  height: 225px;
+  border-radius: 50%;
+}
+@media screen and (max-width: 768px) {
   .PhotographerDetails_picture_img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    object-fit: cover;
-    width: 225px;
-    height: 225px;
-    border-radius: 50%;
+    width: 95px;
+    height: 95px;
   }
-  @media screen and (max-width: 768px) {
-    .PhotographerDetails_picture_img {
-      width: 95px;
-      height: 95px;
-    }
-  }
-  
+}

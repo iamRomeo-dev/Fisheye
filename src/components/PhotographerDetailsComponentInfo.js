@@ -1,23 +1,29 @@
-import img1 from "../PhotographersID/MimiKeel.jpg";
 import { ContactForm } from "./ContactForm";
 import "./PhotographerDetailsComponentInfo.css";
+import "./PhotographerDetails.css";
 
 export const PhotographerDetailsComponentInfo = ({
   photographer,
   showModal,
   setShowModal,
 }) => {
+ 
+  function on() {
+  document.getElementById("overlay").style.display = "block";
+}
 
-  const openModal = () => {
-    setShowModal((prev) => !prev);
-  };
+// function off() {
+//   document.getElementById("overlay").style.display = "none";
+// }
 
   return (
     <>
-      <ContactForm showModal={showModal} setShowModal={setShowModal} />
+      {/* <div id="overlay" onCLick={()=>setShowModal(false)} className="overlay"> */}
+        <ContactForm showModal={showModal} setShowModal={setShowModal} />
+      {/* </div> */}
       <div
         className="PhotographerDetails"
-        style={{ opacity: showModal ? "0.5" : "1" }}
+        // style={{ opacity: showModal ? "0.5" : "1" }}
       >
         <div className="PhotographerDetails_info">
           <div className="PhotographerDetails_info_contact">
@@ -25,7 +31,7 @@ export const PhotographerDetailsComponentInfo = ({
               {photographer.name}
             </h1>
             <button
-              onClick={openModal}
+               onClick={() => {setShowModal(true)}}
               className="PhotographerDetails_info_contact_button"
             >
               Contactez-moi
@@ -48,7 +54,7 @@ export const PhotographerDetailsComponentInfo = ({
         </div>
 
         <img
-          src={img1}
+          src={`${process.env.PUBLIC_URL}/photographers/${photographer.portrait}`}
           alt={photographer.name}
           className="PhotographerDetails_picture_img"
         />

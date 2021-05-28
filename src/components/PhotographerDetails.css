@@ -33,17 +33,6 @@
   margin-top: 1rem;
 }
 
-
-
-
-
-
-
-
-
-
-
-
 .PhotographerDetails_photo {
   /* flex: 1 1 100%; */
   width: 300px;
@@ -86,4 +75,19 @@
 .PhotographerDetails_photo_figcaption_likes {
   display: flex;
   align-items: center;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  cursor: pointer;
 }

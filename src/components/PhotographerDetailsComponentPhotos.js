@@ -1,14 +1,14 @@
 import { useQuery } from "react-query";
 import { fetchMediaByPhotogrpaherId } from "../API";
 import { HeartIcon } from "./Icons";
-import "./PhotographerDetails.css";
+// import "./PhotographerDetailsComponentPhotos.css";
 
-export const PhotographersDetailsComponentPhotos = ({ userId, img4 }) => {
+export const PhotographerDetailsComponentPhotos = ({ userId }) => {
   const { data, status } = useQuery(
     `fetchMediaByPhotogrpaherId/${userId}`,
     async () => fetchMediaByPhotogrpaherId(parseInt(userId)) // <- async () => Car je ne veux pas exécuter la fonction fetchPhotographerById(parseInt(userId)), alors je la déclare. ParseInt permet de mettre userId en Integer
   );
-// console.log(data[1].title)
+
   return (
     <>
       {status === "loading" && <div>Loading data</div>}
@@ -16,18 +16,18 @@ export const PhotographersDetailsComponentPhotos = ({ userId, img4 }) => {
       {status === "error" && <div>Error fetching data</div>}
 
       {status === "success" && (
-       <div
-       className="PhotographerDetails_photos_wrapper"
-       // style={{ opacity: showModal ? "0.5" : "1" }}
-     >
+        <div
+          className="PhotographerDetails_photos_wrapper"
+          // style={{ opacity: showModal ? "0.5" : "1" }}
+        >
           {data &&
             data.map((photo) => (
               <div key={photo.id}>
-                 <img
-            src={`${process.env.PUBLIC_URL}/photographers/${data.image}`}
-            alt={data.title}
-            className="PhotographerLink_img"
-          />
+                <img
+                  src={`${process.env.PUBLIC_URL}/photographers/${data.image}`}
+                  alt={data.title}
+                  className="PhotographerLink_img"
+                />
                 <div className="PhotographerDetails_photo_figcaption">
                   <p>{photo.title} </p>
                   <span className="PhotographerDetails_photo_figcaption_likes">
