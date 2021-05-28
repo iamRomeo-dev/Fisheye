@@ -4,11 +4,13 @@ export const ContactForm = ({ showModal, setShowModal }) => {
   return (
     <>
       {showModal ? (
-        <div
-          className="ContactForm_background_modal"
-          // onClick={() => setShowModal(false)}
-        >
-          <form>
+        <div className="ContactForm_wrapper">
+          <div
+            className="ContactForm_background_modal"
+            onClick={() => setShowModal(false)}
+          ></div>
+
+          <form className="ContactForm_form">
             <div className="ContactForm_header">
               <h2>CONTACTEZ MOI</h2>
               <span
@@ -65,7 +67,9 @@ export const ContactForm = ({ showModal, setShowModal }) => {
                 // }}
               />
 
-              <button type="submit" className="ContactForm_Submit_btn">Envoyer</button>
+              <button type="submit" className="ContactForm_Submit_btn">
+                Envoyer
+              </button>
             </div>
           </form>
         </div>

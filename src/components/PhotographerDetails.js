@@ -30,7 +30,7 @@ export const PhotographerDetails = ({ setFilter }) => {
         (Position:relative; z-index:10 sur le contact form pour etre davant l'overlay)
         (Position:relative; z-index:4 sur l'overlay pour etre derriere le contact form maius devant le reste) */}
 
-         <div className="overlay"></div>
+         {/* <div className="overlay"></div> */}
           <header>
             <Link
               to="/photographers"
