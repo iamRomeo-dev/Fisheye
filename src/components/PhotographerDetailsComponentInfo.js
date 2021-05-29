@@ -8,14 +8,6 @@ export const PhotographerDetailsComponentInfo = ({
   setShowModal,
 }) => {
  
-  function on() {
-  document.getElementById("overlay").style.display = "block";
-}
-
-// function off() {
-//   document.getElementById("overlay").style.display = "none";
-// }
-
   return (
     <>
       {/* <div id="overlay" onCLick={()=>setShowModal(false)} className="overlay"> */}
