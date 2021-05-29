@@ -1,26 +1,26 @@
 .PhotographerDetails_photo {
-    /* flex: 1 1 100%; */
-    width: 300px;
-    height: 250px;
-    object-fit: cover;
-    border: 1px solid #c4c4c4;
-    border-radius: 5px;
-  }
-  
-  .PhotographerDetails_photo_figcaption {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: #901c1c;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 0.25rem;
-    margin-bottom: 1rem;
-  }
+  /* flex: 1 1 100%; */
+  width: 300px;
+  height: 250px;
+  object-fit: cover;
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+}
 
-  .PhotographerDetails_photo_figcaption_likes {
-    display: flex;
-    align-items: center;
-  }
-  
+.PhotographerDetails_photo_figcaption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #901c1c;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.PhotographerDetails_photo_figcaption_likes {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}

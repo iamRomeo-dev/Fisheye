@@ -68,6 +68,7 @@ export const ContactForm = ({ showModal, setShowModal }) => {
                 onChange={(e) => {
                   setEmail(e.target.value);
                 }}
+                required
               />
 
               <label htmlFor="message">Message</label>
@@ -78,6 +79,7 @@ export const ContactForm = ({ showModal, setShowModal }) => {
                 onChange={(e) => {
                   setMessage(e.target.value);
                 }}
+                required
               />
 
               <button type="submit" className="ContactForm_Submit_btn">

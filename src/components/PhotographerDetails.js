@@ -43,7 +43,7 @@ export const PhotographerDetails = ({ setFilter }) => {
               showModal={showModal}
               setShowModal={setShowModal}
             />
-            {/* <div style={{ opacity: showModal ? "0.5" : "1" }}> */}
+
             <div>
               <label
                 htmlFor="dropdown"

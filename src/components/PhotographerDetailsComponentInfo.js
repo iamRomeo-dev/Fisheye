@@ -7,23 +7,19 @@ export const PhotographerDetailsComponentInfo = ({
   showModal,
   setShowModal,
 }) => {
- 
   return (
     <>
-      {/* <div id="overlay" onCLick={()=>setShowModal(false)} className="overlay"> */}
-        <ContactForm showModal={showModal} setShowModal={setShowModal} />
-      {/* </div> */}
-      <div
-        className="PhotographerDetails"
-        // style={{ opacity: showModal ? "0.5" : "1" }}
-      >
+      <ContactForm showModal={showModal} setShowModal={setShowModal} />
+      <div className="PhotographerDetails">
         <div className="PhotographerDetails_info">
           <div className="PhotographerDetails_info_contact">
             <h1 className="PhotographerDetails_info_contact_name">
               {photographer.name}
             </h1>
             <button
-               onClick={() => {setShowModal(true)}}
+              onClick={() => {
+                setShowModal(true);
+              }}
               className="PhotographerDetails_info_contact_button"
             >
               Contactez-moi
