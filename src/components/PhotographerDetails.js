@@ -11,7 +11,7 @@ import { PhotographerDetailsComponentPhotos } from "./PhotographerDetailsCompone
 export const PhotographerDetails = ({ setFilter }) => {
   const { userId } = useParams(); // <- Get back the id from the url, given in the path (:userId)
   const [showModal, setShowModal] = useState(false);
-  const [sortBy, setSortBy] = useState("likes");
+  const [sortBy, setSortBy] = useState("title");
   const { data: photographer, status } = useQuery(
     `fetchPhotographerById/${userId}`,
     async () => fetchPhotographerById(parseInt(userId)) // <- async () => Car je ne veux pas exécuter la fonction fetchPhotographerById(parseInt(userId)), alors je la déclare. ParseInt permet de mettre userId en Integer
@@ -68,7 +68,7 @@ export const PhotographerDetails = ({ setFilter }) => {
               </select>
             </div>
 
-            <PhotographerDetailsComponentPhotos userId={userId} />
+            <PhotographerDetailsComponentPhotos userId={userId} sortBy={sortBy} setSortBy={setSortBy} />
           </div>
         </>
       )}
