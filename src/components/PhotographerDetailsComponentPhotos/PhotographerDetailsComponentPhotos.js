@@ -5,10 +5,7 @@ import { HeartIcon } from "../Icons";
 import { Lightbox } from "../Lightbox/Lightbox";
 import "./PhotographerDetailsComponentPhotos.css";
 
-export const PhotographerDetailsComponentPhotos = ({
-  userId,
-  sortBy,
-}) => {
+export const PhotographerDetailsComponentPhotos = ({ userId, sortBy }) => {
   const [count, setCount] = useState(0);
   const [showLightbox, setShowLightbox] = useState(false);
 
@@ -16,12 +13,6 @@ export const PhotographerDetailsComponentPhotos = ({
     `fetchMediaByPhotogrpaherId/${userId}`,
     async () => fetchMediaByPhotogrpaherId(parseInt(userId)) // <- async () => Car je ne veux pas exécuter la fonction fetchPhotographerById(parseInt(userId)), alors je la déclare. ParseInt permet de mettre userId en Integer
   );
-
-  // if (data === undefined) {
-  //   return <h1> oups</h1>;
-  // }
-  // let dataSortedByLikes = data.sort((a, b) => (a.likes > b.likes ? 1 : -1));
-  // console.log(dataSortedByLikes);
 
   return (
     <>
@@ -48,9 +39,9 @@ export const PhotographerDetailsComponentPhotos = ({
                   )}
                   {photo.video && (
                     <video
-                      controls
                       src={`${process.env.PUBLIC_URL}/media/${photo.video}`}
                       type="video/mp4"
+                      alt={photo.video}
                       className="PhotographerDetails_photo"
                       onClick={() => {
                         setShowLightbox(true);
@@ -66,11 +57,11 @@ export const PhotographerDetailsComponentPhotos = ({
                       {photo.likes + count} <HeartIcon />
                     </span>
                   </div>
-                  {/* <Lightbox
+                  <Lightbox
                     showLightbox={showLightbox}
                     setShowLightbox={setShowLightbox}
                     photo={photo}
-                  /> */}
+                  />
                 </div>
               ))}
 
@@ -91,9 +82,9 @@ export const PhotographerDetailsComponentPhotos = ({
                   )}
                   {photo.video && (
                     <video
-                      controls
                       src={`${process.env.PUBLIC_URL}/media/${photo.video}`}
                       type="video/mp4"
+                      alt={photo.video}
                       className="PhotographerDetails_photo"
                       onClick={() => {
                         setShowLightbox(true);
@@ -134,9 +125,9 @@ export const PhotographerDetailsComponentPhotos = ({
                   )}
                   {photo.video && (
                     <video
-                      controls
                       src={`${process.env.PUBLIC_URL}/media/${photo.video}`}
                       type="video/mp4"
+                      alt={photo.video}
                       className="PhotographerDetails_photo"
                       onClick={() => {
                         setShowLightbox(true);
@@ -152,6 +143,7 @@ export const PhotographerDetailsComponentPhotos = ({
                       {photo.likes + count} <HeartIcon />
                     </span>
                   </div>
+                  
                   <Lightbox
                     showLightbox={showLightbox}
                     setShowLightbox={setShowLightbox}

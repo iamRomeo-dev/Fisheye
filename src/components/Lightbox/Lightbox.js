@@ -5,7 +5,7 @@ export const Lightbox = ({ showLightbox, setShowLightbox, photo }) => {
   return (
     <>
       {showLightbox ? (
-        <div className="ContactForm_wrapper">
+        <div className="ContactForm_wrapper" id={photo.id}>
           <CloseCrossIcon />
 
           <div
@@ -13,11 +13,23 @@ export const Lightbox = ({ showLightbox, setShowLightbox, photo }) => {
             onClick={() => setShowLightbox(false)}
           ></div>
 
-          <img
-            src={`${process.env.PUBLIC_URL}/media/${photo.image}`}
-            alt={photo.name}
-            className="Lightbox_photo"
-          />
+          {photo.image && (
+            <img
+              src={`${process.env.PUBLIC_URL}/media/${photo.image}`}
+              alt={photo.name}
+              className="Lightbox_photo"
+            />
+          )}
+
+          {photo.video && (
+            <video
+              controls
+              src={`${process.env.PUBLIC_URL}/media/${photo.video}`}
+              alt={photo.video}
+              type="video/mp4"
+              className="Lightbox_photo"
+            />
+          )}
         </div>
       ) : null}
     </>

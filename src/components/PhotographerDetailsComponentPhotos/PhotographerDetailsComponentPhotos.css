@@ -5,6 +5,7 @@
   object-fit: cover;
   border: 1px solid #c4c4c4;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .PhotographerDetails_photo_figcaption {
