@@ -1,8 +1,8 @@
 import "./PhotographersList.css";
 import { useQuery } from "react-query";
-import { fetchPhotographers } from "../API";
+import { fetchPhotographers } from "../../API";
 import { PhotographersListComponent } from "./PhotographersListComponent";
-import { Navbar } from "./Navbar";
+import { Navbar } from "../Navbar/Navbar";
 
 export const PhotographersList = ({ filter, setFilter }) => {
   const { data, status } = useQuery(

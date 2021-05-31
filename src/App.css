@@ -21,7 +21,6 @@
   /* Reset button style */
   border: none;
   background: none;
-  cursor: pointer;
 
   color: #901c1c;
   font-style: normal;
@@ -30,6 +29,10 @@
   line-height: 1.25rem;
   padding: 0px 5px;
   display: flex;
+}
+
+.Pointer {
+  cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {

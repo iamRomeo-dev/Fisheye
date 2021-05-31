@@ -1,6 +1,6 @@
-import { ContactForm } from "./ContactForm";
+import { ContactForm } from "../ContactForm/ContactForm";
 import "./PhotographerDetailsComponentInfo.css";
-import "./PhotographerDetails.css";
+import "../PhotographerDetails/PhotographerDetails.css";
 
 export const PhotographerDetailsComponentInfo = ({
   photographer,

@@ -1,14 +1,13 @@
 import { useState } from "react";
 import { useQuery } from "react-query";
-import { fetchMediaByPhotogrpaherId } from "../API";
-import { HeartIcon } from "./Icons";
-import { Lightbox } from "./Lightbox";
+import { fetchMediaByPhotogrpaherId } from "../../API";
+import { HeartIcon } from "../Icons";
+import { Lightbox } from "../Lightbox/Lightbox";
 import "./PhotographerDetailsComponentPhotos.css";
 
 export const PhotographerDetailsComponentPhotos = ({
   userId,
   sortBy,
-  setSortBy,
 }) => {
   const [count, setCount] = useState(0);
   const [showLightbox, setShowLightbox] = useState(false);
@@ -40,7 +39,7 @@ export const PhotographerDetailsComponentPhotos = ({
                   {photo.image && (
                     <img
                       src={`${process.env.PUBLIC_URL}/media/${photo.image}`}
-                      alt={photo.title}
+                      alt={photo.image}
                       className="PhotographerDetails_photo"
                       onClick={() => {
                         setShowLightbox(true);
@@ -59,7 +58,7 @@ export const PhotographerDetailsComponentPhotos = ({
                     />
                   )}
                   <div className="PhotographerDetails_photo_figcaption">
-                    <p>{photo.title} </p>
+                    <p>{photo.title}</p>
                     <span
                       onClick={() => setCount(count + 1)}
                       className="PhotographerDetails_photo_figcaption_likes"
@@ -67,11 +66,11 @@ export const PhotographerDetailsComponentPhotos = ({
                       {photo.likes + count} <HeartIcon />
                     </span>
                   </div>
-                  <Lightbox
+                  {/* <Lightbox
                     showLightbox={showLightbox}
                     setShowLightbox={setShowLightbox}
                     photo={photo}
-                  />
+                  /> */}
                 </div>
               ))}
 

@@ -2,8 +2,8 @@
 import "./App.css";
 
 import { Switch, Route, Redirect } from "react-router-dom";
-import { PhotographersList } from "./components/PhotographersList";
-import { PhotographerDetails } from "./components/PhotographerDetails";
+import { PhotographersList } from "./components/PhotographersList/PhotographersList";
+import { PhotographerDetails } from "./components/PhotographerDetails/PhotographerDetails";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { useState } from "react";
 

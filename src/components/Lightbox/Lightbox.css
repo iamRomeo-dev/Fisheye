@@ -1,0 +1,28 @@
+.ContactForm_background_modal {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.Lightbox_photo {
+  position: relative;
+  z-index: 100;
+  width: 600px;
+  height: 450px;
+  object-fit: cover;
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+
+}
+
+.CloseCrossIcon {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 2rem;
+  z-index: 10;
+  color: red;
+}

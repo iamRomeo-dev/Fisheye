@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router";
-import { fetchPhotographerById } from "../API";
+import { fetchPhotographerById } from "../../API";
 import "./PhotographerDetails.css";
 import { Link } from "react-router-dom";
-import logo from "../logo.svg";
-import { PhotographerDetailsComponentInfo } from "./PhotographerDetailsComponentInfo";
-import { PhotographerDetailsComponentPhotos } from "./PhotographerDetailsComponentPhotos";
+import { PhotographerDetailsComponentInfo } from "../PhotographerDetailsComponentInfo/PhotographerDetailsComponentInfo";
+import { PhotographerDetailsComponentPhotos } from "../PhotographerDetailsComponentPhotos/PhotographerDetailsComponentPhotos";
 
 export const PhotographerDetails = ({ setFilter }) => {
   const { userId } = useParams(); // <- Get back the id from the url, given in the path (:userId)
@@ -31,7 +30,7 @@ export const PhotographerDetails = ({ setFilter }) => {
               className="PhotographerDetails_header_logo"
             >
               <img
-                src={logo}
+                src={`${process.env.PUBLIC_URL}/logo.svg`}
                 alt="Fisheye Home page"
                 onClick={() => setFilter("")}
               />
@@ -68,7 +67,7 @@ export const PhotographerDetails = ({ setFilter }) => {
               </select>
             </div>
 
-            <PhotographerDetailsComponentPhotos userId={userId} sortBy={sortBy} setSortBy={setSortBy} />
+            <PhotographerDetailsComponentPhotos userId={userId} sortBy={sortBy} />
           </div>
         </>
       )}

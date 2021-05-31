@@ -1,6 +1,7 @@
 .PhotographerDetails {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: #fafafa;
   padding: 2rem;
   margin-top: 4rem;
