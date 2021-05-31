@@ -1,4 +1,3 @@
-import { CloseCrossIcon } from "../Icons";
 import "./Lightbox.css";
 
 export const Lightbox = ({ showLightbox, setShowLightbox, photo }) => {
@@ -6,7 +5,17 @@ export const Lightbox = ({ showLightbox, setShowLightbox, photo }) => {
     <>
       {showLightbox ? (
         <div className="ContactForm_wrapper" id={photo.id}>
-          <CloseCrossIcon />
+          <span
+            style={{
+              position: "absolute",
+              top: "1rem",
+              right: "1rem",
+              color: "#901c1c",
+              fontWeight: "bold",
+            }}
+          >
+            X
+          </span>
 
           <div
             className="ContactForm_background_modal"

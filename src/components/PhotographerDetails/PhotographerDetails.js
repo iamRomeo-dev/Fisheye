@@ -67,7 +67,10 @@ export const PhotographerDetails = ({ setFilter }) => {
               </select>
             </div>
 
-            <PhotographerDetailsComponentPhotos userId={userId} sortBy={sortBy} />
+            <PhotographerDetailsComponentPhotos
+              userId={userId}
+              sortBy={sortBy}
+            />
           </div>
         </>
       )}
