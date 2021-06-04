@@ -1,11 +1,7 @@
 import { useState } from "react";
 import { HeartIcon, HeartIconEmpty } from "../Icons";
-import { Lightbox } from "../Lightbox/Lightbox";
 
-export const PhotographerDetailsComponentPhoto = ({ photo }) => {
-  // const [count, setCount] = useState(0);
-  const [showLightbox, setShowLightbox] = useState(false);
-
+export const PhotographerDetailsComponentPhoto = ({ data, photo, onClick }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const onToggleCount = () => {
@@ -18,15 +14,13 @@ export const PhotographerDetailsComponentPhoto = ({ photo }) => {
   };
 
   return (
-    <div key={photo.id}>
+    <div>
       {photo.image && (
         <img
           src={`${process.env.PUBLIC_URL}/media/${photo.image}`}
           alt={photo.title}
           className="PhotographerDetails_photo"
-          onClick={() => {
-            setShowLightbox(true);
-          }}
+          onClick={onClick}
         />
       )}
       {photo.video && (
@@ -35,19 +29,11 @@ export const PhotographerDetailsComponentPhoto = ({ photo }) => {
           type="video/mp4"
           alt={photo.video}
           className="PhotographerDetails_photo"
-          onClick={() => {
-            setShowLightbox(true);
-          }}
+          onClick={onClick}
         />
       )}
       <div className="PhotographerDetails_photo_figcaption">
         <p>{photo.title} </p>
-        {/* <span
-          onClick={() => setCount(count + 1)}
-          className="PhotographerDetails_photo_figcaption_likes"
-        >
-          {photo.likes + count} <HeartIcon />
-        </span> */}
 
         {isOpen ? (
           <span
@@ -65,11 +51,6 @@ export const PhotographerDetailsComponentPhoto = ({ photo }) => {
           </span>
         )}
       </div>
-      <Lightbox
-        showLightbox={showLightbox}
-        setShowLightbox={setShowLightbox}
-        photo={photo}
-      />
     </div>
   );
 };
