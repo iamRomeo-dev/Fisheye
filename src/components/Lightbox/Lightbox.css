@@ -3,19 +3,19 @@
   height: 100%;
   position: fixed;
   z-index: 1;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.5);
   cursor: pointer;
 }
 
 .Lightbox_photo {
   position: relative;
   z-index: 100;
-  width: 600px;
-  height: 450px;
   object-fit: cover;
   border: 1px solid #c4c4c4;
   border-radius: 5px;
-
+  max-height: 60vh;
+  min-height: 20vh;
+  max-width: 60%;
 }
 
 .CloseCrossIcon {
