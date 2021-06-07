@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { useKey } from "../../usekey";
 import "./ContactForm.css";
 
 export const ContactForm = ({ showModal, setShowModal, photographer }) => {
+  const inputEl = useRef(null);
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
@@ -15,10 +17,22 @@ export const ContactForm = ({ showModal, setShowModal, photographer }) => {
     console.log(message);
   };
 
+  // Keyboard utilisation of contact form
+  function handleEscapeContactForm() {
+    setShowModal(false);
+  }
+
+  useKey("Escape", handleEscapeContactForm);
+
+  const onButtonClick = () => {
+    const firstnameInput = document.getElementById("firstname");
+    firstnameInput.inputEl.focus();
+  };
+  useKey("ArrowRight", onButtonClick);
   return (
     <>
       {showModal ? (
-        <div className="ContactForm_wrapper">
+        <div className="ContactForm_wrapper" onClick={onButtonClick}>
           <div
             className="ContactForm_background_modal"
             onClick={() => setShowModal(false)}
@@ -41,6 +55,7 @@ export const ContactForm = ({ showModal, setShowModal, photographer }) => {
               <label htmlFor="firstname">Prénom</label>
               <input
                 type="text"
+                ref={inputEl}
                 id="firstname"
                 aria-label="firstname"
                 value={firstname}

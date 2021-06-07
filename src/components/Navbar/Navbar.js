@@ -14,17 +14,26 @@ export const Navbar = ({ setFilter }) => {
       <nav aria-label="Main navigation" className="Navbar_tags">
         <ul className="Tags">
           <li className="Tag">
-            <button onClick={() => setFilter("portrait")} className="Tag_btn Pointer">
+            <button
+              onClick={() => setFilter("portrait")}
+              className="Tag_btn Pointer"
+            >
               #Portrait
             </button>
           </li>
           <li className="Tag">
-            <button onClick={() => setFilter("art")} className="Tag_btn Pointer">
+            <button
+              onClick={() => setFilter("art")}
+              className="Tag_btn Pointer"
+            >
               #Art
             </button>
           </li>
           <li className="Tag">
-            <button onClick={() => setFilter("fashion")} className="Tag_btn Pointer">
+            <button
+              onClick={() => setFilter("fashion")}
+              className="Tag_btn Pointer"
+            >
               #Fashion
             </button>
           </li>
@@ -37,22 +46,34 @@ export const Navbar = ({ setFilter }) => {
             </button>
           </li>
           <li className="Tag">
-            <button onClick={() => setFilter("travel")} className="Tag_btn Pointer">
+            <button
+              onClick={() => setFilter("travel")}
+              className="Tag_btn Pointer"
+            >
               #Travel
             </button>
           </li>
           <li className="Tag">
-            <button onClick={() => setFilter("sports")} className="Tag_btn Pointer">
+            <button
+              onClick={() => setFilter("sports")}
+              className="Tag_btn Pointer"
+            >
               #Sports
             </button>
           </li>
           <li className="Tag">
-            <button onClick={() => setFilter("animals")} className="Tag_btn Pointer">
+            <button
+              onClick={() => setFilter("animals")}
+              className="Tag_btn Pointer"
+            >
               #Animals
             </button>
           </li>
           <li className="Tag">
-            <button onClick={() => setFilter("events")} className="Tag_btn Pointer">
+            <button
+              onClick={() => setFilter("events")}
+              className="Tag_btn Pointer"
+            >
               #Events
             </button>
           </li>

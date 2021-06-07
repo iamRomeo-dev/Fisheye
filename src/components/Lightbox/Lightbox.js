@@ -1,24 +1,5 @@
-import { useEffect, useRef } from "react";
+import { useKey } from "../../usekey";
 import "./Lightbox.css";
-
-// Handle the key navigation
-const useKey = (key, cb) => {
-  const callbackRef = useRef(cb);
-
-  useEffect(() => {
-    callbackRef.current = cb;
-  });
-
-  useEffect(() => {
-    function handle(event) {
-      if (event.key === key) {
-        callbackRef.current(event);
-      }
-    }
-    document.addEventListener("keydown", handle);
-    return () => document.removeEventListener("keydown", handle);
-  }, [key]);
-};
 
 export const Lightbox = ({
   selectedPhoto,
@@ -46,10 +27,7 @@ export const Lightbox = ({
 
   return (
     <div className="ContactForm_wrapper">
-      <span
-        onClick={() => setSelectedPhoto(null)}
-       className="Escape_btn"
-      >
+      <span onClick={() => setSelectedPhoto(null)} className="Escape_btn">
         X
       </span>
 
