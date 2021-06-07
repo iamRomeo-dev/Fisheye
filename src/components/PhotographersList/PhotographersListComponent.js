@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export const PhotographersListComponent = ({ index, photographer, setFilter }) => {
 
   return (
-    <div className="PhotographerContainer" key={index}>
+    <div className="PhotographerContainer" key={photographer.id} id={photographer.id}>
       <Link
         to={`/photographers/${photographer.id}`}
         className="PhotographerLink"

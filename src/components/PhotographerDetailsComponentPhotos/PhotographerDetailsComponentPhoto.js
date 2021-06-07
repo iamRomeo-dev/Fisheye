@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { HeartIcon, HeartIconEmpty } from "../Icons";
+import "./PhotographerDetailsComponentPhotos.css";
 
 export const PhotographerDetailsComponentPhoto = ({ photo, onClick }) => {
   const [isLiked, setisLiked] = useState(false);
@@ -14,7 +15,7 @@ export const PhotographerDetailsComponentPhoto = ({ photo, onClick }) => {
   };
 
   return (
-    <div>
+    <div aria-label="media link">
       {photo.image && (
         <img
           src={`${process.env.PUBLIC_URL}/media/${photo.image}`}
@@ -33,7 +34,7 @@ export const PhotographerDetailsComponentPhoto = ({ photo, onClick }) => {
         />
       )}
       <div className="PhotographerDetails_photo_figcaption">
-        <p>{photo.title} </p>
+        <p>{photo.title}</p>
 
         {isLiked ? (
           <span

@@ -1,13 +1,13 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useKey } from "../../usekey";
 import "./ContactForm.css";
 
 export const ContactForm = ({ showModal, setShowModal, photographer }) => {
-  const inputEl = useRef(null);
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const inputEl = useRef(null);
 
   const handleSubmitForm = (e) => {
     e.preventDefault();
@@ -21,18 +21,17 @@ export const ContactForm = ({ showModal, setShowModal, photographer }) => {
   function handleEscapeContactForm() {
     setShowModal(false);
   }
+  const handleFocus = () => {
+    inputEl.current.focus();
+  };
 
   useKey("Escape", handleEscapeContactForm);
+  useKey("Enter", handleFocus);
 
-  const onButtonClick = () => {
-    const firstnameInput = document.getElementById("firstname");
-    firstnameInput.inputEl.focus();
-  };
-  useKey("ArrowRight", onButtonClick);
   return (
     <>
       {showModal ? (
-        <div className="ContactForm_wrapper" onClick={onButtonClick}>
+        <div className="ContactForm_wrapper">
           <div
             className="ContactForm_background_modal"
             onClick={() => setShowModal(false)}
@@ -54,10 +53,10 @@ export const ContactForm = ({ showModal, setShowModal, photographer }) => {
             <div className="ContactForm_body">
               <label htmlFor="firstname">Prénom</label>
               <input
-                type="text"
                 ref={inputEl}
+                type="text"
                 id="firstname"
-                aria-label="firstname"
+                aria-labelledby="firstname"
                 value={firstname}
                 onChange={(e) => {
                   setFirstname(e.target.value);
@@ -69,7 +68,7 @@ export const ContactForm = ({ showModal, setShowModal, photographer }) => {
               <input
                 type="text"
                 id="lastname"
-                aria-label="lastname"
+                aria-labelledby="lastname"
                 value={lastname}
                 onChange={(e) => {
                   setLastname(e.target.value);
@@ -81,7 +80,7 @@ export const ContactForm = ({ showModal, setShowModal, photographer }) => {
               <input
                 type="email"
                 id="email"
-                aria-label="email"
+                aria-labelledby="email"
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
@@ -92,7 +91,7 @@ export const ContactForm = ({ showModal, setShowModal, photographer }) => {
               <label htmlFor="message">Message</label>
               <textarea
                 id="message"
-                aria-label="message"
+                aria-labelledby="message"
                 value={message}
                 onChange={(e) => {
                   setMessage(e.target.value);

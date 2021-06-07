@@ -48,20 +48,21 @@ export const PhotographerDetails = ({ setFilter }) => {
                 htmlFor="dropdown"
                 className="PhotographerDetails_dropdown_label"
               >
-                Trier par{" "}
+                Trier par
               </label>
               <select
                 name="dropdown"
                 id="dropdown"
+                aria-labelledby="sortBy"
                 className="PhotographerDetails_dropdown"
               >
-                <option value="popularité" onClick={() => setSortBy("likes")}>
+                <option value="popularité" onClick={() => setSortBy("likes")} onChange={() => setSortBy("likes")}>
                   Popularité
                 </option>
-                <option value="date" onClick={() => setSortBy("date")}>
+                <option value="date" onClick={() => setSortBy("date")} onChange={() => setSortBy("date")}>
                   Date
                 </option>
-                <option value="titre" onClick={() => setSortBy("title")}>
+                <option value="titre" onClick={() => setSortBy("title")} onChange={() => setSortBy("title")}>
                   Titre
                 </option>
               </select>

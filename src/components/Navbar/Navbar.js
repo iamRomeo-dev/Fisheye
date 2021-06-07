@@ -12,6 +12,8 @@ export const Navbar = ({ setFilter }) => {
         />
       </Link>
       <nav aria-label="Main navigation" className="Navbar_tags">
+        {/* Ancore to Lilly Keel id */}
+        <a href="#243" className="Hidden_link">Passer au contenu</a>
         <ul className="Tags">
           <li className="Tag">
             <button

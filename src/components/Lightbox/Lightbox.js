@@ -7,7 +7,8 @@ export const Lightbox = ({
   getPreviousPhoto,
   getNextPhoto,
 }) => {
-  // Set the callback of the useKey func
+
+  // Keyboard utilisation
   function handlePreviousPhotoKeySelection() {
     setSelectedPhoto(getPreviousPhoto());
   }

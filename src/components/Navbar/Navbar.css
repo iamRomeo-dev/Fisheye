@@ -6,11 +6,6 @@ header {
   margin-top: 2rem;
   margin-bottom: 4rem;
 }
-/* @media screen and (max-width: 768px) {
-  header {
-    justify-content: ;
-  }
-} */
 
 .PhotographerList_header_logo {
   display: flex;
@@ -54,4 +49,29 @@ header {
     order: 2;
     font-size: 16px;
   }
+}
+
+.Hidden_link {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.5rem;
+  width: 10rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  color: black;
+  background-color: #db8876;
+  top: 0;
+  transform: translateY(-4rem);
+  border: none;
+  text-align: center;
+  text-decoration: none;
+}
+
+.Navbar_tags:hover .Hidden_link {
+  position: absolute;
+  top: 3%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

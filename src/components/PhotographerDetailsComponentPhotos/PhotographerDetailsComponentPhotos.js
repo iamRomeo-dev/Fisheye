@@ -16,7 +16,7 @@ export const PhotographerDetailsComponentPhotos = ({
     `fetchMediaByPhotogrpaherId/${userId}`,
     async () => fetchMediaByPhotogrpaherId(parseInt(userId)) // <- async () => Car je ne veux pas exécuter la fonction fetchPhotographerById(parseInt(userId)), alors je la déclare. ParseInt permet de mettre userId en Integer
   );
-console.log(data)
+
   // Panel on the bottom for the total of likes per photographer
   let likesTab = [];
   const totalOfLike = [];
@@ -54,7 +54,7 @@ console.log(data)
           {sortBy === "likes" &&
             data
               .sort((a, b) => (a.likes > b.likes ? 1 : -1))
-              .map((photo, index) => (
+              .map((photo) => (
                 <PhotographerDetailsComponentPhoto
                   photo={photo}
                   key={photo.id}
@@ -65,7 +65,7 @@ console.log(data)
           {sortBy === "title" &&
             data
               .sort((a, b) => (a.title > b.title ? 1 : -1))
-              .map((photo, index) => (
+              .map((photo) => (
                 <PhotographerDetailsComponentPhoto
                   photo={photo}
                   key={photo.id}
@@ -76,7 +76,7 @@ console.log(data)
           {sortBy === "date" &&
             data
               .sort((a, b) => (a.date > b.date ? 1 : -1))
-              .map((photo, index) => (
+              .map((photo) => (
                 <PhotographerDetailsComponentPhoto
                   photo={photo}
                   key={photo.id}

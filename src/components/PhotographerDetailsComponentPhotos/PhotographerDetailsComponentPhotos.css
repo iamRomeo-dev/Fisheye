@@ -20,6 +20,10 @@
   margin-bottom: 1rem;
 }
 
+.PhotographerDetails_photo_figcaption p {
+  cursor: auto;
+}
+
 .PhotographerDetails_photo_figcaption_likes {
   display: flex;
   align-items: center;
