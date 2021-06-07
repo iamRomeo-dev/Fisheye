@@ -52,24 +52,6 @@
   line-height: 0.25rem;
   margin-bottom: 1rem;
 }
-/* 
-@media screen and (min-width: 480px) {
-  .PhotographerDetails_photo {
-    flex: 1 1 50%;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .PhotographerDetails_photo {
-    flex: 1 1 33.333%;
-  }
-}
-
-@media screen and (min-width: 980px) {
-  .PhotographerDetails_photo {
-    flex: 1 1 25%;
-  }
-} */
 
 .PhotographerDetails_photo_figcaption_likes {
   display: flex;
@@ -89,4 +71,10 @@
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 2;
   cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .PhotographerDetails_dropdownSort {
+    display: none;
+  }
 }

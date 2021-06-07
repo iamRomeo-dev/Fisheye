@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { HeartIcon, HeartIconEmpty } from "../Icons";
 
-export const PhotographerDetailsComponentPhoto = ({ data, photo, onClick }) => {
-  const [isOpen, setIsOpen] = useState(false);
+export const PhotographerDetailsComponentPhoto = ({ photo, onClick }) => {
+  const [isLiked, setisLiked] = useState(false);
 
-  const onToggleCount = () => {
-    setIsOpen(!isOpen);
-    if (isOpen === true) {
-      return isOpen === 1;
+  const onToggleLike = () => {
+    setisLiked(!isLiked);
+    if (isLiked === true) {
+      return isLiked === 1;
     } else {
-      return isOpen === 0;
+      return isLiked === 0;
     }
   };
 
@@ -35,16 +35,16 @@ export const PhotographerDetailsComponentPhoto = ({ data, photo, onClick }) => {
       <div className="PhotographerDetails_photo_figcaption">
         <p>{photo.title} </p>
 
-        {isOpen ? (
+        {isLiked ? (
           <span
-            onClick={onToggleCount}
+            onClick={onToggleLike}
             className="PhotographerDetails_photo_figcaption_likes"
           >
             {photo.likes + 1} <HeartIcon />
           </span>
         ) : (
           <span
-            onClick={onToggleCount}
+            onClick={onToggleLike}
             className="PhotographerDetails_photo_figcaption_likes"
           >
             {photo.likes} <HeartIconEmpty />

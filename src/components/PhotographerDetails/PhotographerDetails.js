@@ -43,7 +43,7 @@ export const PhotographerDetails = ({ setFilter }) => {
               setShowModal={setShowModal}
             />
 
-            <div>
+            <div className="PhotographerDetails_dropdownSort">
               <label
                 htmlFor="dropdown"
                 className="PhotographerDetails_dropdown_label"
@@ -70,6 +70,7 @@ export const PhotographerDetails = ({ setFilter }) => {
             <PhotographerDetailsComponentPhotos
               userId={userId}
               sortBy={sortBy}
+              photographer={photographer}
             />
           </div>
         </>

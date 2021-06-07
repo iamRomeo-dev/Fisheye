@@ -4,15 +4,31 @@ import { fetchMediaByPhotogrpaherId } from "../../API";
 import { PhotographerDetailsComponentPhoto } from "./PhotographerDetailsComponentPhoto";
 import "./PhotographerDetailsComponentPhotos.css";
 import { Lightbox } from "../Lightbox/Lightbox";
+import { HeartIcon } from "../Icons";
 
-export const PhotographerDetailsComponentPhotos = ({ userId, sortBy }) => {
+export const PhotographerDetailsComponentPhotos = ({
+  userId,
+  sortBy,
+  photographer,
+}) => {
   const [selectedPhoto, setSelectedPhoto] = useState(null);
   const { data, status } = useQuery(
     `fetchMediaByPhotogrpaherId/${userId}`,
     async () => fetchMediaByPhotogrpaherId(parseInt(userId)) // <- async () => Car je ne veux pas exécuter la fonction fetchPhotographerById(parseInt(userId)), alors je la déclare. ParseInt permet de mettre userId en Integer
   );
 
-  //Ligthbox Next and Previous
+  // Panel on the bottom for the total of likes per photographer
+  let likesTab = [];
+  const totalOfLike = [];
+  if (data !== undefined) {
+    for (let i = 0; i < data.length; i++) {
+      likesTab.push(data[i].likes);
+    }
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+    totalOfLike.push(likesTab.reduce(reducer));
+  }
+
+  // Ligthbox Next and Previous
   const getSelectedPhotoIndex = () => {
     return data.findIndex((photo) => photo.id === selectedPhoto.id);
   };
@@ -40,7 +56,6 @@ export const PhotographerDetailsComponentPhotos = ({ userId, sortBy }) => {
               .sort((a, b) => (a.likes > b.likes ? 1 : -1))
               .map((photo, index) => (
                 <PhotographerDetailsComponentPhoto
-                  data={data}
                   photo={photo}
                   key={photo.id}
                   onClick={() => setSelectedPhoto(photo)}
@@ -52,7 +67,6 @@ export const PhotographerDetailsComponentPhotos = ({ userId, sortBy }) => {
               .sort((a, b) => (a.title > b.title ? 1 : -1))
               .map((photo, index) => (
                 <PhotographerDetailsComponentPhoto
-                  data={data}
                   photo={photo}
                   key={photo.id}
                   onClick={() => setSelectedPhoto(photo)}
@@ -64,7 +78,6 @@ export const PhotographerDetailsComponentPhotos = ({ userId, sortBy }) => {
               .sort((a, b) => (a.date > b.date ? 1 : -1))
               .map((photo, index) => (
                 <PhotographerDetailsComponentPhoto
-                  data={data}
                   photo={photo}
                   key={photo.id}
                   onClick={() => setSelectedPhoto(photo)}
@@ -83,6 +96,13 @@ export const PhotographerDetailsComponentPhotos = ({ userId, sortBy }) => {
           />
         </>
       )}
+
+      <div className="PhotographerDetails_photos_all_likes">
+        <span className="PhotographerDetails_photos_all_likes_hearts">
+          {totalOfLike} <HeartIcon />
+        </span>
+        <span>{photographer.price}€ / jour</span>
+      </div>
     </>
   );
 };

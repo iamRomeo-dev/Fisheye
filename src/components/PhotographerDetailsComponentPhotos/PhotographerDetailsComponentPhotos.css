@@ -25,3 +25,26 @@
   align-items: center;
   cursor: pointer;
 }
+
+.PhotographerDetails_photos_all_likes {
+  position: fixed;
+  display: flex;
+  padding: 25px 0;
+  bottom: 0;
+  right: 19.5px;
+  border-radius: 5px 5px 0 0;
+  background-color: #db8876;
+  padding: 0.75rem;
+}
+
+.PhotographerDetails_photos_all_likes_hearts {
+  margin-right: 4rem;
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .PhotographerDetails_photos_all_likes {
+    display: none;
+  }
+}
