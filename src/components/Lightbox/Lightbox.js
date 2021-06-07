@@ -1,4 +1,24 @@
+import { useEffect, useRef } from "react";
 import "./Lightbox.css";
+
+// Handle the key navigation
+const useKey = (key, cb) => {
+  const callbackRef = useRef(cb);
+
+  useEffect(() => {
+    callbackRef.current = cb;
+  });
+
+  useEffect(() => {
+    function handle(event) {
+      if (event.key === key) {
+        callbackRef.current(event);
+      }
+    }
+    document.addEventListener("keydown", handle);
+    return () => document.removeEventListener("keydown", handle);
+  }, [key]);
+};
 
 export const Lightbox = ({
   selectedPhoto,
@@ -6,19 +26,29 @@ export const Lightbox = ({
   getPreviousPhoto,
   getNextPhoto,
 }) => {
+  // Set the callback of the useKey func
+  function handlePreviousPhotoKeySelection() {
+    setSelectedPhoto(getPreviousPhoto());
+  }
+
+  function handleNextPhotoKeySelection() {
+    setSelectedPhoto(getNextPhoto());
+  }
+
+  function handleEscapePhotoKeySelection() {
+    setSelectedPhoto(null);
+  }
+
+  //2 parameters : the key pressed, and the action
+  useKey("ArrowLeft", handlePreviousPhotoKeySelection);
+  useKey("ArrowRight", handleNextPhotoKeySelection);
+  useKey("Escape", handleEscapePhotoKeySelection);
+
   return (
     <div className="ContactForm_wrapper">
       <span
         onClick={() => setSelectedPhoto(null)}
-        style={{
-          position: "absolute",
-          top: "1rem",
-          right: "1rem",
-          color: "#901c1c",
-          fontWeight: "bold",
-          zIndex: "11",
-          cursor: "pointer",
-        }}
+       className="Escape_btn"
       >
         X
       </span>
@@ -38,26 +68,32 @@ export const Lightbox = ({
       </span>
 
       <div
-        className="ContactForm_background_modal"
+        className="Lightbox_background_modal"
         onClick={() => setSelectedPhoto(null)}
       ></div>
 
       {selectedPhoto.image && (
-        <img
-          src={`${process.env.PUBLIC_URL}/media/${selectedPhoto.image}`}
-          alt={selectedPhoto.name}
-          className="Lightbox_photo"
-        />
+        <div className="Lightbox_photo_container">
+          <img
+            src={`${process.env.PUBLIC_URL}/media/${selectedPhoto.image}`}
+            alt={selectedPhoto.name}
+            className="Lightbox_photo"
+          />
+          <span>{selectedPhoto.title}</span>
+        </div>
       )}
 
       {selectedPhoto.video && (
-        <video
-          controls
-          src={`${process.env.PUBLIC_URL}/media/${selectedPhoto.video}`}
-          alt={selectedPhoto.video}
-          type="video/mp4"
-          className="Lightbox_photo"
-        />
+        <div className="Lightbox_photo_container">
+          <video
+            controls
+            src={`${process.env.PUBLIC_URL}/media/${selectedPhoto.video}`}
+            alt={selectedPhoto.video}
+            type="video/mp4"
+            className="Lightbox_photo"
+          />
+          <span>{selectedPhoto.title}</span>
+        </div>
       )}
     </div>
   );

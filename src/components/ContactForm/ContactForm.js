@@ -14,6 +14,7 @@ export const ContactForm = ({ showModal, setShowModal }) => {
     console.log(email);
     console.log(message);
   };
+  
   return (
     <>
       {showModal ? (

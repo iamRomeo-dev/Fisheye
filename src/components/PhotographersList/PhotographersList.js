@@ -27,12 +27,14 @@ export const PhotographersList = ({ filter, setFilter }) => {
                     <PhotographersListComponent
                       key={index}
                       photographer={photographer}
+                      setFilter={setFilter}
                     />
                   ))
               : data.map((photographer, index) => (
                   <PhotographersListComponent
                     key={index}
                     photographer={photographer}
+                    setFilter={setFilter}
                   />
                 ))}
           </div>

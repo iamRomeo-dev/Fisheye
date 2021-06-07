@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
 
-export const PhotographersListComponent = ({ index, photographer }) => {
+export const PhotographersListComponent = ({ index, photographer, setFilter }) => {
+
+  // useEffect(() => {
+  //   setFilter(tag);
+  // }, [tag]);
+
   return (
     <div className="PhotographerContainer" key={index}>
       <Link
@@ -25,6 +30,7 @@ export const PhotographersListComponent = ({ index, photographer }) => {
           <li className="Tag" key={index}>
             <button className="Tag_btn">#{tag}</button>
           </li>
+         
         ))}
       </ul>
     </div>
