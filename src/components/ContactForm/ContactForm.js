@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./ContactForm.css";
 
-export const ContactForm = ({ showModal, setShowModal }) => {
+export const ContactForm = ({ showModal, setShowModal, photographer }) => {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
@@ -14,7 +14,7 @@ export const ContactForm = ({ showModal, setShowModal }) => {
     console.log(email);
     console.log(message);
   };
-  
+
   return (
     <>
       {showModal ? (
@@ -26,15 +26,17 @@ export const ContactForm = ({ showModal, setShowModal }) => {
 
           <form onSubmit={handleSubmitForm} className="ContactForm_form">
             <div className="ContactForm_header">
-              <h2>CONTACTEZ MOI</h2>
+              <h2 className="H2_title">Contactez-moi</h2>
               <span
                 className="ContactForm_header_XClose"
                 aria-label="Close modal"
                 onClick={() => setShowModal(false)}
               >
-                X
+                &#215;
               </span>
             </div>
+            <h2 className="H2_name">{photographer.name}</h2>
+
             <div className="ContactForm_body">
               <label htmlFor="firstname">Prénom</label>
               <input

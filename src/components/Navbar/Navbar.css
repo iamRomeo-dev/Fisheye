@@ -4,7 +4,7 @@ header {
   align-items: center;
   flex-wrap: wrap;
   margin-top: 2rem;
-  margin-bottom: 4rem;;
+  margin-bottom: 4rem;
 }
 /* @media screen and (max-width: 768px) {
   header {
@@ -52,6 +52,6 @@ header {
 @media screen and (max-width: 768px) {
   .NosPhotographes {
     order: 2;
-    font-size: 10px;
+    font-size: 16px;
   }
 }

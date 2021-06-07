@@ -39,8 +39,24 @@
   justify-content: space-between;
 }
 
+h2 {
+font-weight: 400;
+font-style: normal;
+font-size: 34px;
+}
+
+.H2_title {
+  margin-bottom: 1rem;
+margin-top: 1rem;
+}
+.H2_name {
+  margin-top: 0;
+}
+
 .ContactForm_header_XClose {
   cursor: pointer;
+  font-size: 3rem;
+  color: white;
 }
 
 .ContactForm_body {

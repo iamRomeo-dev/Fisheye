@@ -9,7 +9,7 @@ export const PhotographerDetailsComponentInfo = ({
 }) => {
   return (
     <>
-      <ContactForm showModal={showModal} setShowModal={setShowModal} />
+      <ContactForm showModal={showModal} setShowModal={setShowModal} photographer={photographer}/>
       <div className="PhotographerDetails">
         <div className="PhotographerDetails_info">
           <div className="PhotographerDetails_info_contact">
