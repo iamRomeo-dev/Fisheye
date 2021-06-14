@@ -16,45 +16,48 @@ export const PhotographerDetailsComponentPhoto = ({ photo, onClick }) => {
 
   return (
     <div>
-    <button className="PhotographerDetails_photo_btn" aria-label="media link" onClick={onClick}>
-      {photo.image && (
-        <img
-          src={`${process.env.PUBLIC_URL}/media/${photo.image}`}
-          alt={photo.title}
-          className="PhotographerDetails_photo"
-          onClick={onClick}
-        />
-      )}
-      {photo.video && (
-        <video
-          src={`${process.env.PUBLIC_URL}/media/${photo.video}`}
-          type="video/mp4"
-          alt={photo.video}
-          className="PhotographerDetails_photo"
-          onClick={onClick}
-        />
-      )}
-       </button>
+      <button
+        className="PhotographerDetails_photo_btn"
+        aria-label="media link"
+        onClick={onClick}
+      >
+        {photo.image && (
+          <img
+            src={`${process.env.PUBLIC_URL}/media/${photo.image}`}
+            alt={photo.title}
+            className="PhotographerDetails_photo"
+            onClick={onClick}
+          />
+        )}
+        {photo.video && (
+          <video
+            src={`${process.env.PUBLIC_URL}/media/${photo.video}`}
+            type="video/mp4"
+            alt={photo.video}
+            className="PhotographerDetails_photo"
+            onClick={onClick}
+          />
+        )}
+      </button>
       <div className="PhotographerDetails_photo_figcaption">
         <p>{photo.title}</p>
 
         {isLiked ? (
-          <span
+          <button
             onClick={onToggleLike}
             className="PhotographerDetails_photo_figcaption_likes"
           >
             {photo.likes + 1} <HeartIcon />
-          </span>
+          </button>
         ) : (
-          <span
+          <button
             onClick={onToggleLike}
             className="PhotographerDetails_photo_figcaption_likes"
           >
             {photo.likes} <HeartIconEmpty />
-          </span>
+          </button>
         )}
       </div>
-   
     </div>
   );
 };

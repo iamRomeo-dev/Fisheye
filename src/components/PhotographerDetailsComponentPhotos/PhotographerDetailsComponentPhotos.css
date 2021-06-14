@@ -32,7 +32,9 @@
 .PhotographerDetails_photo_figcaption_likes {
   display: flex;
   align-items: center;
-  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: inherit;
 }
 
 .PhotographerDetails_photos_all_likes {
