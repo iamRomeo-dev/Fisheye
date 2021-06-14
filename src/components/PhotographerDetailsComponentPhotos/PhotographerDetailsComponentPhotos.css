@@ -8,6 +8,11 @@
   cursor: pointer;
 }
 
+.PhotographerDetails_photo_btn {
+  background-color: transparent;
+  border: none;
+}
+
 .PhotographerDetails_photo_figcaption {
   display: flex;
   align-items: center;

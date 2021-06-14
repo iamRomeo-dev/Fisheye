@@ -9,7 +9,7 @@ import { PhotographerDetailsComponentPhotos } from "../PhotographerDetailsCompon
 
 export const PhotographerDetails = ({ setFilter }) => {
   const { userId } = useParams(); // <- Get back the id from the url, given in the path (:userId)
-  const [showModal, setShowModal] = useState(false);
+  const [showModalForm, setShowModalForm] = useState(false);
   const [sortBy, setSortBy] = useState("title");
   const { data: photographer, status } = useQuery(
     `fetchPhotographerById/${userId}`,
@@ -39,8 +39,8 @@ export const PhotographerDetails = ({ setFilter }) => {
           <div>
             <PhotographerDetailsComponentInfo
               photographer={photographer}
-              showModal={showModal}
-              setShowModal={setShowModal}
+              showModalForm={showModalForm}
+              setShowModalForm={setShowModalForm}
             />
 
             <div className="PhotographerDetails_dropdownSort">
@@ -55,16 +55,11 @@ export const PhotographerDetails = ({ setFilter }) => {
                 id="dropdown"
                 aria-labelledby="sortBy"
                 className="PhotographerDetails_dropdown"
+                onClick={(e) => setSortBy(e.target.value)}
               >
-                <option value="popularité" onClick={() => setSortBy("likes")} onChange={() => setSortBy("likes")}>
-                  Popularité
-                </option>
-                <option value="date" onClick={() => setSortBy("date")} onChange={() => setSortBy("date")}>
-                  Date
-                </option>
-                <option value="titre" onClick={() => setSortBy("title")} onChange={() => setSortBy("title")}>
-                  Titre
-                </option>
+                <option value="likes">Popularité</option>
+                <option value="date">Date</option>
+                <option value="title">Titre</option>
               </select>
             </div>
 

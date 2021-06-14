@@ -1,13 +1,12 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { useKey } from "../../usekey";
 import "./ContactForm.css";
 
-export const ContactForm = ({ showModal, setShowModal, photographer }) => {
+export const ContactForm = ({ showModalForm, setShowModalForm, photographer }) => {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const inputEl = useRef(null);
 
   const handleSubmitForm = (e) => {
     e.preventDefault();
@@ -19,22 +18,18 @@ export const ContactForm = ({ showModal, setShowModal, photographer }) => {
 
   // Keyboard utilisation of contact form
   function handleEscapeContactForm() {
-    setShowModal(false);
+    setShowModalForm(false);
   }
-  const handleFocus = () => {
-    inputEl.current.focus();
-  };
 
   useKey("Escape", handleEscapeContactForm);
-  useKey("Enter", handleFocus);
 
   return (
     <>
-      {showModal ? (
+      {showModalForm ? (
         <div className="ContactForm_wrapper">
           <div
             className="ContactForm_background_modal"
-            onClick={() => setShowModal(false)}
+            onClick={() => setShowModalForm(false)}
           ></div>
 
           <form onSubmit={handleSubmitForm} className="ContactForm_form">
@@ -43,7 +38,7 @@ export const ContactForm = ({ showModal, setShowModal, photographer }) => {
               <span
                 className="ContactForm_header_XClose"
                 aria-label="Close modal"
-                onClick={() => setShowModal(false)}
+                onClick={() => setShowModalForm(false)}
               >
                 &#215;
               </span>
@@ -53,7 +48,6 @@ export const ContactForm = ({ showModal, setShowModal, photographer }) => {
             <div className="ContactForm_body">
               <label htmlFor="firstname">Prénom</label>
               <input
-                ref={inputEl}
                 type="text"
                 id="firstname"
                 aria-labelledby="firstname"
@@ -62,6 +56,7 @@ export const ContactForm = ({ showModal, setShowModal, photographer }) => {
                   setFirstname(e.target.value);
                 }}
                 required
+                autoFocus
               />
 
               <label htmlFor="lastname">Nom</label>

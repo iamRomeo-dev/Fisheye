@@ -15,7 +15,8 @@ export const PhotographerDetailsComponentPhoto = ({ photo, onClick }) => {
   };
 
   return (
-    <div aria-label="media link">
+    <div>
+    <button className="PhotographerDetails_photo_btn" aria-label="media link" onClick={onClick}>
       {photo.image && (
         <img
           src={`${process.env.PUBLIC_URL}/media/${photo.image}`}
@@ -33,6 +34,7 @@ export const PhotographerDetailsComponentPhoto = ({ photo, onClick }) => {
           onClick={onClick}
         />
       )}
+       </button>
       <div className="PhotographerDetails_photo_figcaption">
         <p>{photo.title}</p>
 
@@ -52,6 +54,7 @@ export const PhotographerDetailsComponentPhoto = ({ photo, onClick }) => {
           </span>
         )}
       </div>
+   
     </div>
   );
 };

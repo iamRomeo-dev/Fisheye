@@ -4,12 +4,16 @@ import "../PhotographerDetails/PhotographerDetails.css";
 
 export const PhotographerDetailsComponentInfo = ({
   photographer,
-  showModal,
-  setShowModal,
+  showModalForm,
+  setShowModalForm,
 }) => {
   return (
     <>
-      <ContactForm showModal={showModal} setShowModal={setShowModal} photographer={photographer}/>
+      <ContactForm
+        showModalForm={showModalForm}
+        setShowModalForm={setShowModalForm}
+        photographer={photographer}
+      />
       <div className="PhotographerDetails">
         <div className="PhotographerDetails_info">
           <div className="PhotographerDetails_info_contact">
@@ -18,7 +22,7 @@ export const PhotographerDetailsComponentInfo = ({
             </h1>
             <button
               onClick={() => {
-                setShowModal(true);
+                setShowModalForm(true);
               }}
               className="PhotographerDetails_info_contact_button"
             >

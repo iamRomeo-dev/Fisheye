@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
 
-export const PhotographersListComponent = ({ index, photographer, setFilter }) => {
-
+export const PhotographersListComponent = ({ photographer, setFilter }) => {
   return (
-    <div className="PhotographerContainer" key={photographer.id} id={photographer.id}>
+    <div className="PhotographerContainer" id={photographer.id}>
       <Link
         to={`/photographers/${photographer.id}`}
         className="PhotographerLink"
@@ -24,9 +23,13 @@ export const PhotographersListComponent = ({ index, photographer, setFilter }) =
       <ul className="Tags">
         {photographer.tags.map((tag, index) => (
           <li className="Tag" key={index}>
-            <button onClick={() => setFilter(`${tag}`)} className="Tag_btn Pointer">#{tag}</button>
+            <button
+              onClick={() => setFilter(`${tag}`)}
+              className="Tag_btn Pointer"
+            >
+              #{tag}
+            </button>
           </li>
-         
         ))}
       </ul>
     </div>

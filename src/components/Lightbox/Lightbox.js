@@ -28,12 +28,13 @@ export const Lightbox = ({
 
   return (
     <div className="ContactForm_wrapper">
-      <span onClick={() => setSelectedPhoto(null)} className="Escape_btn">
+      <span onClick={() => setSelectedPhoto(null)} className="Escape_btn"  ariaLabel= "Close">
         X
       </span>
 
       <span
         className="Previous_btn"
+        ariaLabel= "Previous"
         onClick={() => setSelectedPhoto(getPreviousPhoto())}
       >
         &#60;
@@ -41,6 +42,7 @@ export const Lightbox = ({
 
       <span
         className="Next_btn"
+        ariaLabel= "Next"
         onClick={() => setSelectedPhoto(getNextPhoto())}
       >
         &#62;
