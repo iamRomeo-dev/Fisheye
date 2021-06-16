@@ -50,12 +50,13 @@ export const PhotographerDetails = ({ setFilter }) => {
               >
                 Trier par
               </label>
+
               <select
                 name="dropdown"
                 id="dropdown"
                 aria-labelledby="sortBy"
                 className="PhotographerDetails_dropdown"
-                onClick={(e) => setSortBy(e.target.value)}
+                onChange={(e) => setSortBy(e.target.value)}
               >
                 <option value="likes">Popularité</option>
                 <option value="date">Date</option>
