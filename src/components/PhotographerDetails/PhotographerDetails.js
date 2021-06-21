@@ -28,11 +28,11 @@ export const PhotographerDetails = ({ setFilter }) => {
             <Link
               to="/photographers"
               className="PhotographerDetails_header_logo"
+              onClick={() => setFilter("")}
             >
               <img
                 src={`${process.env.PUBLIC_URL}/logo.svg`}
                 alt="Fisheye Home page"
-                onClick={() => setFilter("")}
               />
             </Link>
           </header>

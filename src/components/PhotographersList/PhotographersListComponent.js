@@ -19,7 +19,6 @@ export const PhotographersListComponent = ({ photographer, setFilter }) => {
       <h4 className="PhotographerCity">{photographer.city}</h4>
       <h4 className="PhotographerTagline">{photographer.tagline}</h4>
       <h4 className="PhotographerPrice">{photographer.price}€/jour</h4>
-      {/* <h4 className="PhotographerCity">{photographer.portrait}</h4> */}
       <ul className="Tags">
         {photographer.tags.map((tag, index) => (
           <li className="Tag" key={index}>

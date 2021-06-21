@@ -4,11 +4,14 @@ import { Link } from "react-router-dom";
 export const Navbar = ({ setFilter }) => {
   return (
     <header>
-      <Link to="/photographers" className="PhotographerList_header_logo">
+      <Link
+        to="/photographers"
+        className="PhotographerList_header_logo"
+        onClick={() => setFilter("")}
+      >
         <img
           src={`${process.env.PUBLIC_URL}/logo.svg`}
           alt="Fisheye Home page"
-          onClick={() => setFilter("")}
         />
       </Link>
       <nav aria-label="Main navigation" className="Navbar_tags">
