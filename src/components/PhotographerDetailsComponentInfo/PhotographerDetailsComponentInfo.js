@@ -39,7 +39,7 @@ export const PhotographerDetailsComponentInfo = ({
             {photographer.tags &&
               photographer.tags.map((tag, index) => (
                 <li className="Tag" key={index}>
-                  <button className="Tag_btn">#{tag}</button>
+                  <span className="Tag_btn">#{tag}</span>
                 </li>
               ))}
           </ul>
