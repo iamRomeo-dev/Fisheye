@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { HeartIcon, HeartIconEmpty } from "../Icons";
+import { Media } from "./Media";
 import "./PhotographerDetailsComponentPhotos.css";
 
 export const PhotographerDetailsComponentPhoto = ({ photo, onClick }) => {
@@ -21,23 +22,7 @@ export const PhotographerDetailsComponentPhoto = ({ photo, onClick }) => {
         aria-label="media link"
         onClick={onClick}
       >
-        {photo.image && (
-          <img
-            src={`${process.env.PUBLIC_URL}/media/${photo.image}`}
-            alt={photo.title}
-            className="PhotographerDetails_photo"
-            onClick={onClick}
-          />
-        )}
-        {photo.video && (
-          <video
-            src={`${process.env.PUBLIC_URL}/media/${photo.video}`}
-            type="video/mp4"
-            alt={photo.video}
-            className="PhotographerDetails_photo"
-            onClick={onClick}
-          />
-        )}
+        <Media photo={photo} onClick={onClick} />
       </button>
       <div className="PhotographerDetails_photo_figcaption">
         <p>{photo.title}</p>
