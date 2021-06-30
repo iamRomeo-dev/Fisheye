@@ -54,33 +54,33 @@ export const PhotographerDetailsComponentPhotos = ({
           {sortBy === "likes" &&
             data
               .sort((a, b) => (a.likes > b.likes ? 1 : -1))
-              .map((photo) => (
+              .map((media) => (
                 <PhotographerDetailsComponentPhoto
-                  photo={photo}
-                  key={photo.id}
-                  onClick={() => setSelectedPhoto(photo)}
+                media={media}
+                  key={media.id}
+                  onClick={() => setSelectedPhoto(media)}
                 />
               ))}
 
           {sortBy === "title" &&
             data
               .sort((a, b) => (a.title > b.title ? 1 : -1))
-              .map((photo) => (
+              .map((media) => (
                 <PhotographerDetailsComponentPhoto
-                  photo={photo}
-                  key={photo.id}
-                  onClick={() => setSelectedPhoto(photo)}
+                media={media}
+                  key={media.id}
+                  onClick={() => setSelectedPhoto(media)}
                 />
               ))}
 
           {sortBy === "date" &&
             data
               .sort((a, b) => (a.date > b.date ? 1 : -1))
-              .map((photo) => (
+              .map((media) => (
                 <PhotographerDetailsComponentPhoto
-                  photo={photo}
-                  key={photo.id}
-                  onClick={() => setSelectedPhoto(photo)}
+                media={media}
+                  key={media.id}
+                  onClick={() => setSelectedPhoto(media)}
                 />
               ))}
         </div>

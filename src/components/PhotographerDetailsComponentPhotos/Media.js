@@ -1,19 +1,19 @@
-export const Media = ({ photo, onClick }) => {
+export const Media = ({ media, onClick }) => {
   return (
     <>
-      {photo.image && (
+      {media.image && (
         <img
-          src={`${process.env.PUBLIC_URL}/media/${photo.image}`}
-          alt={photo.title}
+          src={`${process.env.PUBLIC_URL}/media/${media.image}`}
+          alt={media.title}
           className="PhotographerDetails_photo"
           onClick={onClick}
         />
       )}
-      {photo.video && (
+      {media.video && (
         <video
-          src={`${process.env.PUBLIC_URL}/media/${photo.video}`}
+          src={`${process.env.PUBLIC_URL}/media/${media.video}`}
           type="video/mp4"
-          alt={photo.video}
+          alt={media.video}
           className="PhotographerDetails_photo"
           onClick={onClick}
         />

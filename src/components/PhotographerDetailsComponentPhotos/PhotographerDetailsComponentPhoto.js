@@ -3,7 +3,7 @@ import { HeartIcon, HeartIconEmpty } from "../Icons";
 import { Media } from "./Media";
 import "./PhotographerDetailsComponentPhotos.css";
 
-export const PhotographerDetailsComponentPhoto = ({ photo, onClick }) => {
+export const PhotographerDetailsComponentPhoto = ({ media, onClick }) => {
   const [isLiked, setisLiked] = useState(false);
 
   const onToggleLike = () => {
@@ -22,24 +22,24 @@ export const PhotographerDetailsComponentPhoto = ({ photo, onClick }) => {
         aria-label="media link"
         onClick={onClick}
       >
-        <Media photo={photo} onClick={onClick} />
+        <Media media={media} onClick={onClick} />
       </button>
       <div className="PhotographerDetails_photo_figcaption">
-        <p>{photo.title}</p>
+        <p>{media.title}</p>
 
         {isLiked ? (
           <button
             onClick={onToggleLike}
             className="PhotographerDetails_photo_figcaption_likes"
           >
-            {photo.likes + 1} <HeartIcon />
+            {media.likes + 1} <HeartIcon />
           </button>
         ) : (
           <button
             onClick={onToggleLike}
             className="PhotographerDetails_photo_figcaption_likes"
           >
-            {photo.likes} <HeartIconEmpty />
+            {media.likes} <HeartIconEmpty />
           </button>
         )}
       </div>
